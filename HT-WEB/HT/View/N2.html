@@ -30,7 +30,7 @@ td{word-break:break-all;}
 <script>
 $(function() {
 	countDownToExm();
-	$('#add').click(function(){writeToTable("","","","")});
+	$('#add').click(function(){writeToTable("","","","","")});
 	
 	// 鼠标移出移入事件
 	// TODO1.合并为一====================================================
@@ -106,7 +106,7 @@ $(function() {
 	        },
 	        success:function(json){
 	            $.each(json,function(i){
-	            	writeToTable(json[i]['id'],json[i]['spell'],json[i]['word'],json[i]['meaning']);
+	            	writeToTable(json[i]['id'],json[i]['spell'],json[i]['word'],json[i]['meaning'],json[i]['del']);
 	            });
 	            if(json.length == 0){
 	            	$('#add').click();
@@ -120,6 +120,7 @@ $(function() {
             	$('#search_word').removeAttr('style');
 	        }
 	    });
+		countWords();
     });
 	$(document).on( "click",'#mask', function() { 
 		  $('#mask , .popup_article_control').fadeOut(300 , function() {
@@ -171,7 +172,7 @@ $(function() {
 <body>
 <a href="../index.html" >HOME</a>
 <div id="countDown" style="position:absolute; left:30%;right:30%;text-align:center;"></div>
-<div style="padding:50px;width:873px;clear:both">
+<div style="padding:40px;width:873px;clear:both">
     <div style="float:left;">
 	    <label>序号:</label>
 	    <input type="text" id="input_id">
@@ -189,6 +190,7 @@ $(function() {
     </div>
     <div style="clear:both;"></div>
 	<table id="record_head_table" title="记录">
+		<caption ><span style="float:left;font-size:3"></span></caption>
 	    <tr>
 	    	<td align="center" width="80px" height="22px" colspan="2">序列号</td>
 	        <td align="center" width="100px" height="22px">输入</td>

@@ -28,7 +28,18 @@ function findArticle(id) {
 		//window.open("view/N2.html");
 	}
 }
-	
+
+function countWords(){
+	$.ajax({
+		type:"POST",
+		url:"../getAction.php",
+		dataType:"json",
+		data:{action:'selectDelAndUndel'},
+		success:function(json){
+			$('#record_head_table caption span').html('<font color="green">已删除</font>:'+json[0][0]+' / <font color="red">未删除</font>:'+json[0][1]);
+		}
+	});
+}
 // 查询评论
 function findComments(json) {
 	$(".reply_list").html('');
@@ -120,8 +131,13 @@ function myparser(s){
     }
 }
 
-function writeToTable(id,spell,word,meaning){
-	var dom_tr = $('<tr>');
+function writeToTable(id,spell,word,meaning,del){
+	if(del =="" || del == 0){
+		var dom_tr = $('<tr>');
+	} else {
+		var dom_tr = $('<tr style="text-decoration:line-through;">');
+	}
+	
 	$(dom_tr).append($('<td>',{width:'39px',height:'22px',id:'td_index'}));
 	$(dom_tr).append($('<td>',{width:'38px',height:'22px',id:'word_index'}).html(id));
 	$(dom_tr).append($('<td>',{width:'100px',height:'22px',id:'td_input'}));
@@ -133,10 +149,19 @@ function writeToTable(id,spell,word,meaning){
 	$(dom_tr).append($('<td>',{width:'80px',height:'22px',id:'td_dictionary',align:'center'})
 			 .append($('<img>',{src:'images/search.png',id:'td_img_dictionary'})));
 	$(dom_tr).append($('<td>',{width:'80px',height:'22px',id:'td_status',align:'center'}));
-	$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_del',align:'center'})
-			 .append($('<input>',{type:'checkbox',id:'td_ckbox_del'})));
-	$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_button'})
-			 .append($('<img>',{src:'images/edit.png',id:'td_edit_button'}).hide()));
+	if(del == "" || del == '0'){
+		$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_del',align:'center'})
+				 .append($('<input>',{type:'checkbox',id:'td_ckbox_del'})));
+		$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_button'})
+				 .append($('<img>',{src:'images/edit.png',id:'td_edit_button'}).hide()));
+	} else {
+		$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_del',align:'center'})
+				 .append($('<input>',{type:'checkbox',id:'td_ckbox_del'})));
+		$(dom_tr).append($('<td>',{width:'40px',height:'22px',id:'td_button'})
+				 .append($('<img>',{src:'images/edit.png',id:'td_edit_button'})));
+	}
+	
+	
 	
 	$('#result_body_table').prepend($(dom_tr));
 	reWriteIndex();
@@ -195,6 +220,7 @@ function updateWords(){
             	});
         		$('#td_edit_button',parent).fadeOut( "slow" );
         	}
+        	countWords();
         }
     });
 }

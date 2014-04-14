@@ -27,14 +27,12 @@ class SearchWordModel{
 				*
 			FROM
 				n2_word
-			WHERE
-				del='0'
 			ORDER BY
 				RAND()
 			LIMIT 100";
 		} else {
 			$whereArr = array("$id","$spell","$dateTime");
-			$whereStr = " del='0' ";
+			$whereStr = " del<>'2' ";
 			//$empty_count = 0;
 			for ($i = 0; $i < count($whereArr); $i++) {
 //				if($whereArr[$i] != ""){
