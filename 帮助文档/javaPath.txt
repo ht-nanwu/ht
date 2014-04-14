@@ -1,0 +1,19 @@
+﻿因为是卸载旧版，再安装新版的。电脑中配置了tomcat  tomcat运行成功。但是javac不能用
+变量配置：
+CLASSPATH：
+.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar;%JAVA_HOME%\lib\dt.jar;（后面还有tomcat的配置）
+PATH：
+（前面还有其它）;%JAVA_HOME%\bin
+JAVA_HOME：
+C:\Program Files\Java\jdk1.7.0_01
+
+求各位帮我看下是不是有什么问题？
+之前jdk1.6 都是没问题的  
+另外如果一直配置不好，会不会影响myeclipse和tomcat的使用
+
+M2_HOME 
+
+D:\apache-maven-3.0.4
+
+PATH：
+（前面还有其它）;%M2_HOME %\bin

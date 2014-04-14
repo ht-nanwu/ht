@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <ViewFlipper
+        android:id="@+id/ViewFlipper01"
+        android:layout_width="fill_parent"
+        android:layout_height="404dp" >
+
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/mp3_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+        </LinearLayout>
+    </ViewFlipper>
+
+</LinearLayout>

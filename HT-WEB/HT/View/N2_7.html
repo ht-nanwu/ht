@@ -1,0 +1,1658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/icon.css">
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<title>单词记忆</title>
+<style>
+.tab-content {
+	font-size: 14px;
+	padding: 10px;
+	background: #eeeeee;
+	color: blue;
+}
+
+.key-word-red {
+	color: red
+}
+
+.key-word-green {
+	color: rgb(18, 175, 30)
+}
+
+ul {
+	list-style: none;
+}
+li{margin:5px;}
+.table{border-collapse:collapse;table-layout:fixed;font-size: 12px;margin-top:50px;}
+.table th{border:1px solid #95B8E7;}
+.table td{border:1px solid #95B8E7;}
+</style>
+<body>
+<a href="../index.html" >HOME</a>
+<div class="easyui-tabs" style="width: 1200px; height: 650px">
+	<!--序数词-->
+	<div title="序数词" class="tab-content">
+		<br>
+		一、年、月、月份的数法<br>
+		～～年～～月～～か月<br>
+		一～いちねん～いちがつ～いっかげつ<br>
+		二～にねん～にがつ～にかげつ<br>
+		三～さんねん～さんがつ～さんかげつ<br>
+		四～よねん～しがつ～よんかげつ<br>
+		五～ごねん～ごがつ～ごかげつ<br>
+		六～ろくねん～ろくがつ～ろっかげつ<br>
+		七～ななねん～しちがつ～ななかげつ<br>
+		八～はちねん～はちがつ～はっかげつ<br>
+		九～きゅうねん～くがつ～きゅうかげつ<br>
+		十～じゅうねん～じゅうがつ～じゅ（じ）っかげつ<br>
+		十一～じゅういちねん～じゅういちがつ～じゅういっかげつ<br>
+		十二～じゅうにねん～じゅうにがつ～じゅうにかげつ<br>
+		<br>
+		二、日的数法<br>
+		一日～ついたち<br>
+		二日～ふつか<br>
+		三日～みっか<br>
+		四日～よっか<br>
+		五日～いつか<br>
+		六日～むいか<br>
+		七日～なのか<br>
+		八日～ようか<br>
+		九日～ここのか<br>
+		十日～とおか<br>
+		十一日～じゅういちにち<br>
+		十二日～じゅうににち<br>
+		十三日～じゅうさんにち<br>
+		十四日～じゅうよっか<br>
+		十五日～じゅうごにち<br>
+		十六日～じゅうろくにち<br>
+		十七日～じゅうしちにち<br>
+		十八日～じゅうはちにち<br>
+		十九日～じゅうくにち<br>
+		二十日～はつか<br>
+		二十一日～にじゅういちにち<br>
+		二十二日～にじゅうににち<br>
+		二十三日～にじゅうさんにち<br>
+		二十四日～にじゅうよっか<br>
+		二十五日～にじゅうごにち<br>
+		二十六日～にじゅうろくにち<br>
+		二十七日～にじゅうしちにち<br>
+		二十八日～にじゅうはちにち<br>
+		二十九日～にじゅうくにち<br>
+		三十日～さんじゅうにち<br>
+		三十一日～さんじゅういちにち<br>
+		<br>
+		三、年、月、日、星期的说法<br>
+		過去（かこ）<br>
+		年～おととし～去年<br>
+		月～先々月（せんせんげつ）～先月（せんげつ）<br>
+		日～おととい～昨日<br>
+		週～先々週（せんせんしゅう）～先週（せんしゅう）<br>
+		現在（げんざい）<br>
+		年～今年<br>
+		月～今月（こんげつ）<br>
+		日～今日<br>
+		週～今週（こんしゅう）<br>
+		未来（みらい）<br>
+		年～来年（らいねん）～再来年（さらいねん）<br>
+		月～来月（らいげつ）～再来月（さらいげつ）<br>
+		日～あした～あさって<br>
+		週～来週（らいしゅう）～再来週（さらいしゅう）<br>
+		<br>
+		四、年龄的数法<br>
+		一～ひとつ～いっさい<br>
+		二～ふたつ～にさい<br>
+		三～みっつ～さんさい<br>
+		四～よっつ～よんさい<br>
+		五～いつつ～ごさい<br>
+		六～むっつ～ろくさい<br>
+		七～ななつ～なな（しち）さい<br>
+		八～やっつ～はっさい<br>
+		九～ここのつ～きゅうさい<br>
+		十～とお～じゅ（じ）っさい<br>
+		二十～...～はたち<br>
+		<br>
+		～時<br>
+		いちじ にじ さんじ よじ ごじ ろくじ しちじ はちじ くじ じゅうじ じゅういちじ じゅうにじ<br>
+		～分<br>
+		いっぷん にふん さんぷん よんぷん ごふん ろっぷん ななふん はっぷん きゅうふん じっぷん じゅういっぷん じゅうにふん<br>
+		～時間<br>
+		いちじかん にじかん さんじかん よじかん ごじかん ろくじかん しちじかん はちじかん くじかん じゅうじかん じゅういちじかん
+		じゅうにじかん<br>
+		<br>
+		钞票的数法<br>
+		～円 ～銭<br>
+		一 いちえん いっせん<br>
+		二 にえん にせん<br>
+		三 さんえん さんせん<br>
+		四 よえん よんせん<br>
+		五 ごえん ごせん<br>
+		六 ろくえん ろくせん<br>
+		七 ななえん ななせん<br>
+		八 はちえん はっせん<br>
+		九 きゅうえん きゅうせん<br>
+		十 じゅうえん じっせん<br>
+		百 ひゃくえん<br>
+		千 せんえん<br>
+		万 いちまんえん<br>
+		<br>
+		星期的数法<br>
+		星期日 日曜日 にちようび<br>
+		星期一 月曜日 げつようび<br>
+		星期二 火曜日 かようび<br>
+		星期三 水曜日 すいようび<br>
+		星期四 木曜日 もくようび<br>
+		星期五 金曜日 きんようび<br>
+		星期六 土曜日 どようび<br>
+		星期几 何曜日 なにようび<br>
+		<br>
+		个数的数法<br>
+		ひとつ（一つ） <br>
+		ふたつ（二つ） <br>
+		みっつ（三つ） <br>
+		よっつ（四つ） <br>
+		いつつ（五つ） <br>
+		むっつ（六つ） <br>
+		ななつ（七つ） <br>
+		やっつ（八つ） <br>
+		ここのつ（九つ） <br>
+		とお（十） <br>
+		<br>
+		<br>
+		一，二，三，四，五，六，七，八，九，十<br>
+		いち<br>
+		に<br>
+		さん<br>
+		し、よん、よ<br>
+		ご<br>
+		ろく<br>
+		しち、なな<br>
+		はち<br>
+		く、きゅう<br>
+		じゅう<br>
+		～百<br>
+		ひゃく<br>
+		にひゃく<br>
+		さんびゃく<br>
+		よんひゃく<br>
+		ごひゃく<br>
+		ろっぴゃく<br>
+		ななひゃく<br>
+		はっぴゃく<br>
+		きゅうひゃく<br>
+		～千<br>
+		せん<br>
+		にせん<br>
+		さんぜん<br>
+		よんせん<br>
+		ごせん<br>
+		ろくせん<br>
+		ななせん<br>
+		はっせん<br>
+		きゅうせん<br>
+		<br>
+		～階<br>
+		いっかい<br>
+		にかい<br>
+		さんがい<br>
+		よんかい<br>
+		ごかい<br>
+		ろっかい<br>
+		ななかい、しちかい<br>
+		はっかい<br>
+		きゅうかい<br>
+		じゅっかい、じっかい<br>
+		<br>
+		～人<br>
+		ひとり<br>
+		ふたり<br>
+		さんにん<br>
+		よにん<br>
+		ごにん<br>
+		ろくにん<br>
+		ななにん<br>
+		しちにん<br>
+		はちにん<br>
+		きゅうにん、くにん<br>
+		じゅうに
+    </div>
+	<!--尊他和自谦-->
+	<div title="尊他和自谦" style="padding: 40px">
+		
+	一，尊他语的三中形式<br>
+	１、「動詞」（ら）れます（被动形）<br>	
+	２、お＋一类动词/二类动词的 ます形去掉 ます＋になります	<br>
+	３、お＋一类动词/二类动词＋ください<br>
+	　　ご＋三类动词的汉字部分＋ください	<br>
+	二，自谦语的形式	<br>
+	1、お＋一类动词/二类动词＋します<br>
+	　　ご＋三类动词的汉字部分＋します	<br>
+	下表は尊他語と自谦語の特殊形式である<br>
+		<table class="table">
+			<tbody>
+				<tr class="">
+					<th>基本形</th>
+					<th>尊他语（基本形）</th>
+					<th>自谦语（基本形）</th>
+					<th>尊他语（ます形）</th>
+					<th>自谦语（ます形）</th>
+					<th>尊他语（命令形）</th>
+				</tr>
+				<tr>
+					<td>見る</td>
+					<td>ご覧になる</td>
+					<td>拝見する</td>
+					<td>ご覧になります</td>
+					<td>拝見します</td>
+					<td>ご覧</td>
+				</tr>
+				<tr>
+					<td>食べる</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>飲む</td>
+					<td>召し上がる</td>
+					<td>いただく</td>
+					<td>召し上がります</td>
+					<td>いただきます</td>
+					<td>召し上がれ</td>
+				</tr>
+				<tr>
+					<td>行く</td>
+					<td rowspan="3">
+					いらっしゃる<br>
+					おいでになる
+					</td>
+					<td rowspan="2">参る/伺う</td>
+					<td rowspan="3">
+					いらっしゃいます<br>
+					おいでになります
+					</td>
+					<td rowspan="2">参ります/伺います</td>
+					<td rowspan="3">
+					いらっしゃい<br>
+					おいで
+					</td>
+				</tr>
+				<tr>
+					<td>来る</td>
+				</tr>
+				<tr>
+					<td>いる</td>
+					<td>&nbsp;</td>
+					<td>おります</td>
+				</tr>
+				<tr>
+					<td>聞く</td>
+					<td>&nbsp;</td>
+					<td>伺う</td>
+					<td>&nbsp;</td>
+					<td>伺います</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>する</td>
+					<td>なさる</td>
+					<td>いたす</td>
+					<td>なさいます</td>
+					<td>いたします</td>
+					<td>なさい</td>
+				</tr>
+				<tr>
+					<td>言う</td>
+					<td>おっしゃる</td>
+					<td>申す</td>
+					<td>おっしゃいます</td>
+					<td>申します</td>
+					<td>おっしゃい</td>
+				</tr>
+				<tr>
+					<td>くれる</td>
+					<td>くださる</td>
+					<td>&nbsp;</td>
+					<td>くださいます</td>
+					<td>&nbsp;</td>
+					<td>ください</td>
+				</tr>
+				<tr>
+					<td>あげる</td>
+					<td>&nbsp;</td>
+					<td>差し上げる</td>
+					<td>&nbsp;</td>
+					<td>差し上げます</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>もらう</td>
+					<td>&nbsp;</td>
+					<td>いただく</td>
+					<td>&nbsp;</td>
+					<td>いただきます</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>～ている</td>
+					<td>～ていらっしゃる</td>
+					<td>&nbsp;</td>
+					<td>～ていらっしゃいます</td>
+					<td>～ております</td>
+					<td>～ていらっしゃい</td>
+				</tr>
+				<tr>
+					<td>～てくれる</td>
+					<td>～てくださる</td>
+					<td>&nbsp;</td>
+					<td>～てくださいます</td>
+					<td>&nbsp;</td>
+					<td>～てください</td>
+				</tr>
+				<tr>
+					<td>～てあげる</td>
+					<td>&nbsp;</td>
+					<td>～て差し上げる</td>
+					<td>&nbsp;</td>
+					<td>～て差し上げます</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>～てもらう</td>
+					<td>&nbsp;</td>
+					<td>～ていただく</td>
+					<td>&nbsp;</td>
+					<td>～ていただきます</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>知っている</td>
+					<td>&nbsp;</td>
+					<td>存じている</td>
+					<td>ご存じです</td>
+					<td>存じています</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--动词变化-->
+	<div title="动词变化" style="padding: 40px">
+		<table class="table">
+			<tr class="head_table">
+				<th></th>
+				<th>&nbsp;</th>
+				<th>一类动词</th>
+				<th>&nbsp;</th>
+				<th>二类段动词</th>
+				<th>&nbsp;</th>
+				<th>三类动词</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>基本形</td>
+				<td>&nbsp;</td>
+				<td>词尾在う段假名上</td>
+				<td>買う</td>
+				<td>词尾以る结尾，前一个假名在い段或え段</td>
+				<td>食べる</td>
+				<td>来る</td>
+				<td>する</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>ます形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段假名变为该行的い段假名，加ます</td>
+				<td>買います</td>
+				<td>去词尾的る+ます</td>
+				<td>食べます</td>
+				<td>来ます</td>
+				<td>します</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>て形</td>
+				<td>い音变</td>
+				<td>词尾以く、ぐ结尾的，变いて、いで</td>
+				<td>書いて</td>
+				<td>去词尾的る+て</td>
+				<td>食べて</td>
+				<td>きて</td>
+				<td>して</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>促音变</td>
+				<td>词尾以う、つ、る结尾的，变って</td>
+				<td>買って</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>拨音变</td>
+				<td>词尾以ぬ、ぶ、む结尾的，变んで</td>
+				<td>飲んで</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>ない形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为あ段假名，加ない</td>
+				<td>買わない</td>
+				<td>去词尾的る+ない</td>
+				<td>食べない</td>
+				<td>こない</td>
+				<td>しない</td>
+			</tr>
+			<tr>
+				<td>た形</td>
+				<td>い音变</td>
+				<td>词尾以く、ぐ结尾的，变いた、いだ</td>
+				<td>書いた</td>
+				<td>去词尾的る+た</td>
+				<td>食べた</td>
+				<td>きた</td>
+				<td>した</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>促音变</td>
+				<td>词尾以う、つ、る结尾的，变った</td>
+				<td>買った</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>拨音变</td>
+				<td>词尾以ぬ、ぶ、む结尾的，变んだ</td>
+				<td>飲んだ</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>命令形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为え段假名</td>
+				<td>買え</td>
+				<td>去词尾的る+ろ</td>
+				<td>食べろ</td>
+				<td>こい</td>
+				<td>しろ</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>意志けい</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为お段假名的长音</td>
+				<td>買おう</td>
+				<td>去词尾的る+よう</td>
+				<td>食べよう</td>
+				<td>こよう</td>
+				<td>しよう</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>ばけい</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为え段假名，加ば</td>
+				<td>買えば</td>
+				<td>去词尾的る+れば</td>
+				<td>食べれば</td>
+				<td>くれば</td>
+				<td>すれば</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>一类形容词形构成方式是把词尾い变成ければ（ないーなければ、楽しいー楽しければ）</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>可能形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为え段假名，加る</td>
+				<td>かえる</td>
+				<td>去词尾的る+られる</td>
+				<td>食べられる</td>
+				<td>こられる</td>
+				<td>できる</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>可能形式的ます形，其活用方式与一段动词一样</td>
+				<td>買えます</td>
+				<td>食べられます</td>
+				<td>こられます</td>
+				<td>できます</td>
+				<td>散歩できます</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>被动形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为あ段假名，加れる</td>
+				<td>買われる</td>
+				<td>去词尾的る+られる</td>
+				<td>食べられる</td>
+				<td>こられる</td>
+				<td>される</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>被动形式的ます形，其活用方式与一段动词一样</td>
+				<td>買われます</td>
+				<td>食べられます</td>
+				<td>こられます</td>
+				<td>されます</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>使役形</td>
+				<td>&nbsp;</td>
+				<td>词尾う段改为あ段假名，加せる</td>
+				<td>買わせる</td>
+				<td>去词尾的る+させる</td>
+				<td>食べさせる</td>
+				<td>こさせる</td>
+				<td>させる</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>使役形式的ます形，其活用方式与一段动词一样</td>
+				<td>買わせます</td>
+				<td>食べさせます</td>
+				<td>こさせます</td>
+				<td>させます</td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<!--一类形容词-->
+	<div title="一类形容词" style="padding: 40px">
+		<div class="tab-content">
+			<h3 class="key-word-red">連用形</h3>
+			<ul>
+				<li class="key-word-green">い＝＞く</li>
+				<li>
+				<ul>
+					<li>あの 教室は 広く ないです</li>
+					<li>手を 高く 上げます</li>
+					<li>あの 教室は 広く ないです</li>
+				</ul>
+				</li>
+				<li class="key-word-green">かった</li>
+				<li>
+				<ul>
+					<li>あの 教室は 広く ないです</li>
+					<li>手を 高く 上げます</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">連体形</h3>
+			<ul>
+				<li class="key-word-green">い＋名词</li>
+				<li>
+				<ul>
+					<li>広い 教室で 勉強します</li>
+				</ul>
+				</li>
+				<li class="key-word-green">い＋ので</li>
+				<li>
+				<ul>
+					<li>忙しいので 休みません</li>
+				</ul>
+				<ul>
+					<li>きれいなので 目を引く</li>
+				</ul>
+				</li>
+				<li class="key-word-green">い＋のに</li>
+				<li>
+				<ul>
+					<li>安いののに</li>
+				</ul>
+				<ul>
+					<li>きれいなのに</li>
+				</ul>
+				</li>
+				<li class="key-word-green">い</li>
+				<li>
+				<ul>
+					<li>怖いのは家具が倒れるだ。</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">終止形</h3>
+			<ul>
+				<li class="key-word-green">敬体和简体</li>
+				<li>
+				<ul>
+					<li>教室は 広い（です）</li>
+					<li>教室は 広い</li>
+					<li>教室は 広くないです</li>
+					<li>教室は 広くない</li>
+					<li>教室は 広かったです</li>
+					<li>教室は 広かった</li>
+					<li>教室は 広くなかったです</li>
+					<li>教室は 広くなかった</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">未然形（推測形）</h3>
+			<ul>
+				<li class="key-word-green">い → かろ ＋ う </li>
+				<li>
+				<ul>
+					<li>明日は 寒かろう。（寒いでしょう）</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">仮定形</h3>
+			<ul>
+				<li class="key-word-green">い → けれ ＋ ば</li>
+				<li>
+				<ul>
+					<li>天気が よければ 明日 公園へ 行きます</li>
+				</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--二类形容词-->
+	<div title="二类形容词" style="padding: 40px">
+		<div class="tab-content">
+			<h3 class="key-word-red">連用形</h3>
+			<ul>
+				<li class="key-word-green">で</li>
+				<li>
+				<ul>
+					<li>王さんは親切できれいな人だ</li>
+					<li>わたしは料理があまり上手ではない</li>
+				</ul>
+				</li>
+				<li class="key-word-green">に</li>
+				<li>
+				<ul>
+					<li>教室をきれいに掃除してください</li>
+				</ul>
+				</li>
+				<li class="key-word-green">だった</li>
+				<li>
+				<ul>
+					<li>あの山は有名だったかもしれない</li>
+				</ul>
+				</li>
+				<li class="key-word-green">たり</li>
+				<li>
+				<ul>
+					<li>このへんは時間によって静かだったり、賑やかだったりです</li>
+				</ul>
+				</li>								
+			</ul>
+			<h3 class="key-word-red">連体形</h3>
+			<ul>
+				<li class="key-word-green">な＋名词</li>
+				<li>
+				<ul>
+					<li>静かなところに住みたいだ</li>
+				</ul>
+				</li>
+				<li class="key-word-green">な＋ので</li>
+				<li>
+				<ul>
+					<li>元気なので、 休みません</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">終止形</h3>
+			<ul>
+				<li class="key-word-green">い＋（です）</li>
+				<li>
+				<ul>
+					<li>教室は いです</li>
+					<li>教室は きれいだ</li>
+					<li>教室は きれいではありません</li>
+					<li>教室は きれいではない</li>
+					<li>教室は きれいでした</li>
+					<li>教室は きれいだった</li>
+					<li>教室は きれいではありませんでした</li>
+					<li>教室は きれいではなかった</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">未然形（推測形）</h3>
+			<ul>
+				<li class="key-word-green">だ → だろう</li>
+				<li>
+				<ul>
+					<li>明日は きれいだろう</li>
+				</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">仮定形</h3>
+			<ul>
+				<li class="key-word-green">だ　→　ならば</li>
+				<li>
+				<ul>
+					<li>いやなら（ば）、止めたほうがいい</li>
+				</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 动词 -->
+	<div title="动词" style="padding: 40px">
+		<div class="tab-content">
+			<h3 class="key-word-red">终了型</h3>
+			<ul>
+				<li class="key-word-green">る型及びます型</li>
+				<li>
+					<ul>
+						<li>私は町へ行く</li>
+					</ul>
+				</li>
+				<li class="key-word-green">格助词と</li>
+				<li>
+					<ul>
+						<li>李さんは午後町へ行くと言いました</li>
+					</ul>
+				</li>
+				<li class="key-word-green">接续助词（から、けれども、が、とて、と、とも、なら、し）</li>
+				<li>
+					<ul>
+						<li>私は町へ行くから、手紙を出してきて上げましょう</li>
+					</ul>
+					<ul>
+						<li>田中さんは毎朝６時に起きるけれども、学校へ行くのは８時です</li>
+					</ul>
+					<ul>
+						<li>来年から日本語を勉強するが、どれだけ覚えられるだろうか</li>
+					</ul>
+					<ul>
+						<li>今日は休みだし、天気もいいし、人出が凄い</li>
+					</ul>
+					<ul>
+						<li>雨がふるとて、訓練は続ける</li>
+					</ul>
+					<ul>
+						<li>春になると、花が咲く</li>
+					</ul>
+					<ul>
+						<li>王さんが行くなら、私も行く</li>
+					</ul>
+					<ul>
+						<li>いかにできるとも、油断は大敵だ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">副助词（か、や、とか、しかない、など）</li>
+				<li>
+					<ul>
+						<li>日曜日に王さんが来るかどうかわからない</li>
+					</ul>
+					<ul>
+						<li>こうなったら、謝るしかない</li>
+					</ul>
+					<ul>
+						<li>日曜日に王さんが来るかどうかわからない</li>
+					</ul>
+					<ul>
+						<li>そんなことをするなどはいけませんね</li>
+					</ul>
+					<ul>
+						<li>朝早く散歩へ行くとか、体操をするとかしています</li>
+					</ul>
+					<ul>
+						<li>食うや食わずの哀れな暮らし</li>
+					</ul>
+				</li>
+				<li class="key-word-green">推量助动词（らしい）</li>
+				<li>
+					<ul>
+						<li>明日は雨が降るらしい</li>
+					</ul>
+				</li>
+				<li class="key-word-green">比况助动词（みたい）</li>
+				<li>
+					<ul>
+						<li>この空模様は雨が降るみたいだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">传闻助动词（そうだ）</li>
+				<li>
+					<ul>
+						<li>話によると、田中さんは中国に行くそうだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">否定意志助词（まい）</li>
+				<li>
+					<ul>
+						<li>誰も旅行に行くまいし、のんびり家で休もう</li>
+					</ul>
+				</li>
+				<li class="key-word-green">否定命令助动词（な）</li>
+				<li>
+					<ul>
+						<li>あんな所には二度と行くな</li>
+					</ul>
+					<ul>
+						<li>図書館だから大きな声で喋るな</li>
+					</ul>
+				</li>
+				<li class="key-word-green">终止形+だろう、でしょう表示敬体和简体的推测</li>
+				<li>
+					<ul>
+						<li>山田さんは近いから早く来られるでしょう</li>
+					</ul>
+					<ul>
+						<li>小林君はまだ辞書を買っていないだろう</li>
+					</ul>
+				</li>						
+			</ul>
+			<h3 class="key-word-red">连用形</h3>
+			<ul>
+				<li class="key-word-green">连用形+始まる、続ける、終わる等构成复合动词</li>
+				<li>
+					<ul>
+						<li>読みかけた本の頁に印をつける</li>
+					</ul>
+					<ul>
+						<li>食べおわったら片づけてください</li>
+					</ul>
+					<ul>
+						<li>勉強し続けるためには丈夫な体が必要です</li>
+					</ul>
+					<ul>
+						<li>来遅れたら待ちませんよ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">连用形+やすい、にくい等来构成复合形容词</li>
+				<li>
+					<ul>
+						<li>この万年筆は書きやすいです</li>
+					</ul>
+					<ul>
+						<li>この部分は把握しやすい内容だ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">动词连用形2+て+（狭义的）补助动词</li>
+				<li>
+					<ul>
+						<li>兄は今本を読んでいます</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>美味しいので、全部食べてしまいました</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>友達が来るから、部屋を掃除しておきました</li>
+					</ul>
+				</li>
+				<li class="key-word-green">连用形+名词构成复合名词</li>
+				<li>
+					<ul>
+						<li>読み物はたくさんあるけれど、本当に読んだのはそれほど無い</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>忘れ物をしないように気を付けてください</li>
+					</ul>
+				</li>
+				<li class="key-word-green">中顿法：连用形</li>
+				<li>
+					<ul>
+						<li>雨が降り、風も吹いている</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>忘日本語の勉強もし、コンピュータの勉強もする</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li> ご飯を食べ、お茶を飲んだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">名词法：一些动词连用形＝表示动作的名词</li>
+				<li>
+					<ul>
+						<li>この店はつけが出来ません</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>読み書きはできますか</li>
+					</ul>
+				</li>
+				<li class="key-word-green">来去的目的 连用形+に+来去动词</li>
+				<li>
+					<ul>
+						<li>食品を買いに行きます</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>運動場へ運動をしに行きます。“到运动场去进行运动</li>
+					</ul>
+				</li>
+				<li class="key-word-green">部分助词的要求：连用形＋ながら、つつ、つ、しだい</li>
+				<li>
+					<ul>
+						<li>本を読みながら食事をする</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>悪いと知りつつ、返事を出さない</li>
+					</ul>
+				</li>
+				<li class="key-word-green">部分助词的要求：连用形＋て、たり、たら、ても、たって（五段动词音变浊化）</li>
+				<li>
+					<ul>
+						<li> いくら勉強したって、良い成績が取れない</li>
+					</ul>
+				</li>
+				<li class="key-word-green">表示愿望：动词连用形+愿望助动词たい（自己）、たがる（別人）</li>
+				<li>
+					<ul>
+						<li> 私は外国に行ってみたいです</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li> 李さんも行きたがっています</li>
+					</ul>
+				</li>
+				<li class="key-word-green">表示过去或者完了：动词连用形+过去助动词た</li>
+				<li>
+					<ul>
+						<li> 昨日は雨が降りませんでした</li>
+					</ul>
+				</li>
+				<li class="key-word-green">表示好象、差一点：动词连用形+样态助动词そうだ</li>
+				<li>
+					<ul>
+						<li> 今日は遅刻しそうです</li>
+					</ul>
+				</li>
+				<li class="key-word-green">接副词時に</li>
+				<li>
+					<ul>
+						<li> 「お早うございます。」と話す時に、。。</li>
+					</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">未然形</h3>
+			<ul>
+				<li class="key-word-green">未然形+ない</li>
+				<li>
+					<ul>
+						<li> 私は本を読まない</li>
+					</ul>
+				</li>
+				<li class="key-word-green">被动、可能：未然形+れる、られる</li>
+				<li>
+					<ul>
+						<li> 眠くて、朝早く起きられない</li>
+					</ul>
+				</li>
+				<li class="key-word-green"> 敬语：未然形+れる、られる</li>
+				<li>
+					<ul>
+						<li> 小林先生はいつもお宅で新聞を読まれます</li>
+					</ul>
+				</li>
+				<li class="key-word-green"> 使役：未然形+せる、させる</li>
+				<li>
+					<ul>
+						<li>母は妹を買い物に行かせる</li>
+					</ul>
+				</li>
+				<li class="key-word-green">未然形+される、させられる</li>
+				<li>
+					<ul>
+						<li>行きたくないのですが、母に病院へ行かされました</li>
+					</ul>
+				</li>
+				<li class="key-word-green">未然形+される、させられる</li>
+				<li>
+					<ul>
+						<li>行きたくないのですが、母に病院へ行かされました</li>
+					</ul>
+				</li>
+				<li class="key-word-green">否定推量和否定意志</li>
+				<li>
+					<ul>
+						<li>こんな酸っぱい果物は二度と食べまい</li>
+					</ul>
+				</li>			
+			</ul>
+			<h3 class="key-word-red">连体形</h3>
+			<ul>
+				<li class="key-word-green">放在体言前面，修饰体言，做定语。构成连体形的动词，可以是一个动词，也可以是比较复杂的句子</li>
+				<li>
+					<ul>
+						<li> ここは（私が勉強している）学校です</li>
+					</ul>
+				</li>
+				<li class="key-word-green">当用言部分必须要名词化时，用其连体形与形式体言相连，就可以完成名词化的过程。由于名词化了的句子的词性不同，可以分别构成主语、宾语、状语、补语等</li>
+				<li>
+					<ul>
+						<li>（私が勉強している）のは日本語です</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li> 私は（王さんが日本語を勉強している）のを知っています</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（古くなった）のでも良いですから、貸してください</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>李さんは（日本語で手紙を書く）ことができます</li>
+					</ul>
+				</li>
+				<li class="key-word-green">一些接续助词要求前面动词变成连体形。如：ので、のに、ものを、ものの等等</li>
+				<li>
+					<ul>
+						<li>（私は町へ行く）ので、午後は来ません</li>
+					</ul>
+					<ul>
+						<li>（来年から日本語を勉強するという）ものの、どれだけ覚えられるだろうか</li>
+					</ul>
+					<ul>
+						<li>（子供が病気になった）ものを、親は何もできなくて、焦るばかりだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">一些助动词要求前面动词变成连体形。如：比况助动词ようだ</li>
+				<li>
+					<ul>
+						<li>（明日は雨が降る）ようだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					一些名词为基础的词汇，构成惯用形，具有固定的形式和含意，要求前面的动词都是连体形
+				</li>
+				<li>
+					<ul>
+						<li>（食事をしている）ところに友達がきた</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>この本は（読めば読む）ほど分からなくなる</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（知っている）くせに知らないふりをしている【　くせに（明明……，还……）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（あまり勉強をしなかった）せいで、試験に失敗した【せい（只怪……）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（新しい家を買う）ために、一生懸命金をためている</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（儲けようとして株に手を出した）ばかりに、大失敗を起こした</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>王さんは（もうすぐ来る）はずだ【はず（应该……‘推测’）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>彼は（今日遅刻した）わけを先生に話している【わけ（理由）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>私は（働ける）限り、頑張ろうと思う</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>疲れて（服を着た）まま寝てしまった【まま（保持原样）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>私は（働ける）限り、頑張ろうと思う</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>明日は日曜日だから、（母の家に行く）つもりだ</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（説明書に書いてある）とおり操作したら成功した【とおり（按照……）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>友達の家で、（食事をご馳走になった）上に、お土産まで貰った【うえに（再加上）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（説明書に書いてある）とおり操作したら成功した【とおり（按照……）】</li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li>（決心した）以上、必ず実行してみせる【以上（既然……，就……）】</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					在简体句连体形后面补加のです、ものです、ことです，表示专门的意思<br>
+					补加“のです”表示对相应问题的说明解释的语气。<br>
+					如果是用“のですか”提问，则要求对方回答原因和理由。口语当中“のです”经常简化为“んです”。<br>
+				</li>
+				<li>
+					<ul>
+						<li>
+							「王さんはいませんが、（町へ行った）のですか。」「ええ、さっき出て行きました。」
+						</li>
+					</ul>
+				</li>
+				<li class="key-word-green">补加“ものです”表示<br>
+					惊讶，回忆，理所当然的道理<br>
+				</li>
+				<li>
+					<ul>
+						<li>
+							こんなところに美味しい店があるなんて、想像もつかないものですね
+						</li>
+					</ul>
+					<ul>
+						<li>
+							（子供の時、よくこの山に登った）ものです
+						</li>
+					</ul>
+					<ul>
+						<li>
+							（人間は必ず死ぬ）ものです
+						</li>
+					</ul>
+				</li>
+				<li class="key-word-green">关于惯用形にしたがって、に違いない、にしろ</li>
+				<li>
+					<ul>
+						<li>（試験が近づく）にしたがって、不安が強まる</li>
+					</ul>
+					<ul>
+						<li>（あの人は家から学校に通っている）に違いない</li>
+					</ul>
+					<ul>
+						<li>（忙しかった）にしろ、電話くらいは掛けてくるものだ</li>
+					</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">
+				推量形
+			</h3>
+			<ul>
+				<li class="key-word-green">构成意志形</li>
+				<li>
+					<ul>
+						<li>私がしましょう</li>
+					</ul>
+					<ul>
+						<li>僕が見てこよう</li>
+					</ul>
+					<ul>
+						<li>僕が掃こう</li>
+					</ul>
+				</li>
+				<li class="key-word-green">第一人称对第二人称的劝诱和动员，一起行动</li>
+				<li>
+					<ul>
+						<li>一緒に行きましょう</li>
+					</ul>
+					<ul>
+						<li>明日の朝は早く食べよう</li>
+					</ul>
+					<ul>
+						<li>帰ることにしよう</li>
+					</ul>
+				</li>
+				<li class="key-word-green">对第三人称的事物的推测</li>
+				<li>
+					<ul>
+						<li>彼はここで食事をしよう=食事をするだろう</li>
+					</ul>
+					<ul>
+						<li> 明日彼は家に来よう</li>
+					</ul>
+					<ul>
+						<li>パソコン、使えよう(使えるだろう)</li>
+					</ul>
+				</li>
+				<li class="key-word-green"> 构成不同的惯用型，表示不同的意思</li>
+				<li>
+					<ul>
+						<li>私は北京に行こうと思います</li>
+					</ul>
+					<ul>
+						<li>明日は8時に出勤しようと思う</li>
+					</ul>
+					<ul>
+						<li>今晩は皆で晩御飯を食べようと思っていたが、出来なかった</li>
+					</ul>
+				</li>
+				<li class="key-word-green">推量形＋推量助动词う/よう＋とする<br>表示“将要……"</li>
+				<li>
+					<ul>
+						<li> 町へ行こうとしたら,雨が降り出した</li>
+					</ul>
+					<ul>
+						<li>明外出しようとしたところ、友達から電話が来た</li>
+					</ul>
+					<ul>
+						<li>私が何かをしようとすると、子供は必ず泣き出す</li>
+					</ul>
+				</li>
+				<li class="key-word-green">推量形＋推量助动词う/よう＋ではないか<br>表示“我们干……吧”（用否定提问的形式，婉转的表示正面意见）</li>
+				<li>
+					<ul>
+						<li>映画でも見ようではないか</li>
+					</ul>
+					<ul>
+						<li>もう一度考えてみようじゃありませんか</li>
+					</ul>
+					<ul>
+						<li>とにかく,最後まで頑張ってみようじゃないか</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/よう＋ものなら<br>
+					表示“我们干……吧”（用否定提问的形式，婉转的表示正面意见）</li>
+				<li>
+					<ul>
+						<li>後十分遅れようものなら、助からなかったかもしれない</li>
+					</ul>
+					<ul>
+						<li>そんなに汚いものを食べようものなら、すぐ病気になるよ</li>
+					</ul>
+					<ul>
+						<li>こんな寒い日に、薄着などしようものなら、すぐ風邪を引くよ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/よう＋としても……ない<br>
+					表示“即使想……，也不……。”
+				</li>
+				<li>
+					<ul>
+						<li>単語をいくら覚えようとしても、覚えられない</li>
+					</ul>
+					<ul>
+						<li>暇がないから、映画を見ようとしても、見ることが出来ない</li>
+					</ul>
+					<ul>
+						<li>犯人は逃げようとしても、逃げられなかった</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					疑问词＋推量形＋推量助动词う/ようが<br>
+					同疑问词＋推量形＋推量助动词う/ようと<br>
+					表示“无论……，都……。”
+				</li>
+				<li>
+					<ul>
+						<li>結果はどうなろうが、試してみるつもりだ</li>
+					</ul>
+					<ul>
+						<li>何をしようと、私の勝手である</li>
+					</ul>
+					<ul>
+						<li>犯人は逃げようとしても、逃げられなかった</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/よう＋にも＋同一动词可能否定<br>
+					同推量形＋推量助动词う/よう＋にも＋同一动词连用形＋ようがない<br>
+					表示“想干什么也干不起来”，显得无奈
+				</li>
+				<li>
+					<ul>
+						<li>単語をいくら覚えようにも、覚えられない</li>
+					</ul>
+					<ul>
+						<li>犯人は逃げようにも、逃げようがなかった</li>
+					</ul>
+					<ul>
+						<li>暇がないから、映画に行こうにも、行きようがない</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/ようと、同一动词推量形＋推量助动词う/ようと<br>
+					同推量形＋推量助动词う/ようが、同一动词推量形＋推量助动词う/ようが<br>
+					表示“不管……也好，……也好，都……。” 
+				</li>
+				<li>
+					<ul>
+						<li>6時に起きようと、8時に起きようと、日曜日だからかまわない</li>
+					</ul>
+					<ul>
+						<li>水蒸気であろうが、氷であろうが、水の本質は変わらない</li>
+					</ul>
+					<ul>
+						<li>が得をしようと、損をしようと、私とは関係が有りません</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/ようが、推量形＋推量助动词う/ようが<br>
+					同推量形＋推量助动词う/ようと、推量形＋推量助动词う/ようと<br>
+					表示“不管……也好，……也好，都……。”
+				</li>
+				<li>
+					<ul>
+						<li>単語を覚えようと、文法を理解しようと、とても難しいことだ</li>
+					</ul>
+					<ul>
+						<li>勉強しようが、仕事をしようが、どうしても時間が足りない</li>
+					</ul>
+					<ul>
+						<li>飲もうが,食べようが、ここには何もないから、どうにもならない</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					推量形＋推量助动词う/ようが同一动词终止形＋まいが<br>
+					同推量形＋推量助动词う/ようと同一动词终止形＋まいと<br>
+					まい是否定意志和否定推量。表示“干也好，不干也好，反正都……。”
+				</li>
+				<li>
+					<ul>
+						<li> 沢山(たくさん)食べようと食べまいと、料金は同じだ</li>
+					</ul>
+					<ul>
+						<li>雨が降ろうが降らないが、運動会は必ず行います</li>
+					</ul>
+					<ul>
+						<li>田中さんが行こうが行くまいが、私は行きます</li>
+					</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">
+				命令形
+			</h3>
+			<ul>
+				<li class="key-word-green">构成口令命令形</li>
+				<li>
+					<ul>
+						<li>前へ進め！。止まれ</li>
+					</ul>
+					<ul>
+						<li>右へ倣え！直れ</li>
+					</ul>
+					<ul>
+						<li>集合しろ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">年纪较大的男性对熟悉的晚辈说话用命令形</li>
+				<li>
+					<ul>
+						<li>机の上の眼鏡を持ってきてくれ</li>
+					</ul>
+					<ul>
+						<li>これを全部食べろ</li>
+					</ul>
+					<ul>
+						<li>早く来い</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					友好的年轻男性之间和丈夫对妻子等等也可以用命令形，但是有时加一些终助词缓和生硬语气。
+				</li>
+				<li>
+					<ul>
+						<li>食事の前に風呂にしてくれ</li>
+					</ul>
+					<ul>
+						<li>明日家に来いよ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					间接引语中，请求形式变成命令形
+					直接引语为：恵子、お母さんは「明日電話をかけます」と言ってたよ<BR>
+					间接引语为：恵子、お母さんが明日電話をかけると言ってたよ。<BR>
+					如果这种直接引语中有请求的意思，往往在其间接引语中就用命令式
+				</li>
+				<li>
+					<ul>
+						<li>
+							直接引语为：恵子、お母さんは「明日電話をかけます」と言ってたよ。<BR>
+							间接引语为：恵子、お母さんが明日電話をかけると言ってたよ
+						</li>
+					</ul>
+					<ul>
+						<li>
+							王さんは「家へ遊びに来なさい」と言いました<BR>
+							王さんがうちに遊びに来いと言いました
+						</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					用命令形构成惯用型<BR>
+					意思：即使……也……。就算……，也……
+				</li>
+				<li>
+					<ul>
+						<li>社長の命令にしろ?そう簡単に引き受けられない</li>
+					</ul>
+					<ul>
+						<li>忙しかったにせよ?電話をかけてくるぐらいの時間はあるはずだ</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					形式：动词、形容词终止形/名词/形容动词词干にしろ（せよ）动词、形容词终止形/名词/形容动词词干にしろ（せよ）<BR>
+					无论是……还是……。……也好……也好……<BR>
+					与……にしても……にしても相似
+				</li>
+				<li>
+					<ul>
+						<li>絵画にしろ音楽にしろ、才能がなければ上達することは難しい</li>
+					</ul>
+					<ul>
+						<li>来るにしろ、来ないにしろ、なるべく早く知らせてください</li>
+					</ul>
+				</li>
+				<li class="key-word-green">
+					不属于命令形，但是表示命令
+					动词连用形＋な 表示命令或者劝告，语言比较粗俗<BR>
+					在「なさい」「ください」「いらっしゃい」「ちょうだい」后面，有缓和命令语气的作用，主要是妇女用语。<BR>
+					否定命令形な
+				</li>
+				<li>
+					<ul>
+						<li>気をつけてしな</li>
+					</ul>
+					<ul>
+						<li>明日の晩、私の宅へいらっしゃいな</li>
+					</ul>
+					<ul>
+						<li>お台所の仕事、手伝ってちょうだいな</li>
+					</ul>
+					<ul>
+						<li>遊んでばかりいないで、勉強しなさいな</li>
+					</ul>
+					<ul>
+						<li>図書館では話すな</li>
+					</ul>
+					<ul>
+						<li>先生がいらっしゃるから外出するな</li>
+					</ul>
+				</li>
+			</ul>
+			<h3 class="key-word-red">
+				假定形
+			</h3>
+			<ul>
+				<li class="key-word-green">构成假定形，在主从句中形成条件状语从句</li>
+				<li>
+					<ul>
+						<li>先生が本を読めば、学生も一緒に読む</li>
+					</ul>
+					<ul>
+						<li> 私が食べれば、子供も食べる</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li class="key-word-green">
+					用假定形构成惯用型<br>
+					句形：「……も……ば、……も……」<br>
+					表示“同时出现两种情况。” 翻译为：“既……，又……。”
+				</li>
+				<li>
+					<ul>
+						<li>運動会で、親も走れば子供も走る</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li class="key-word-green">
+					用假定形构成惯用型<br>
+					句形：「动词假定形＋ば、同一动词连体形＋ほど」<br>
+					表示“变化过程。”翻译为：“越来越……。”
+				</li>
+				<li>
+					<ul>
+						<li>この本は読めば読むほど面白くなる</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

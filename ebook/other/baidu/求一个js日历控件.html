@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({ 
+		dateFormat: "yy-mm-dd" ,
+		onClose:
+		function(){
+			var strTime = $( "#datepicker" ).val();
+			var date = new Date(strTime);
+			date.setMonth(date.getMonth() + 1);
+			var yMax = date.getYear();
+			var mMax = date.getMonth();
+			var dMax = date.getDay();
+			
+			var y = strTime.split("-")[0];
+			var m = strTime.split("-")[1];
+			var d = strTime.split("-")[2];
+			$( "#datepicker1" ).datepicker({ 
+				maxDate: new Date(y, m, d),
+				minDate: new Date(yMax, mMax, dMax),
+			});
+		}	
+	})
+  });
+  </script>
+</head>
+<body>
+ 
+<p>Date From: <input type="text" id="datepicker"></p>
+ 
+<BR>
+
+<p>Date From: <input type="text" id="datepicker1"></p>
+
+<input value= "click" type="button"></button>
+ 
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+	$(document).ready(function(){
+		var loc = location.href;
+		var n1 = loc.length;
+		var n2 = loc.indexOf("=");
+		var id = loc.substr(n2+1, n1-n2);
+		$('#' + id).show();
+	});
+</script>
+
+
+</head>
+<body>
+<div id="a1" style="display:none">a1</div>
+<div id="a2" style="display:none">a2</div>
+<div id="a3" style="display:none">a3</div>
+</body>
+</html>

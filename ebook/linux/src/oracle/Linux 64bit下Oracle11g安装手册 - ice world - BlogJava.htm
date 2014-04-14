@@ -1,0 +1,816 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0061)http://www.blogjava.net/icewee/archive/2013/01/30/394943.html -->
+<html><head id="Head"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	Linux 64bit下Oracle11g安装手册 - ice world - BlogJava
+</title><meta id="metaKeywords" name="keywords" content="Linux 64bit下Oracle11g安装手册"><link type="text/css" rel="stylesheet" href="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/common.css"><link id="MainCss" type="text/css" rel="stylesheet" href="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/style.css"><link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://www.blogjava.net/icewee/rss.aspx"><script type="text/javascript" async="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/ga.js"></script><script async="" type="text/javascript" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/pubads_impl_26.js"></script><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script><script type="text/javascript" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/osd.js"></script></head>
+<body screen_capture_injected="true">
+    <form name="Form1" method="post" action="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/Linux 64bit下Oracle11g安装手册 - ice world - BlogJava.htm" onsubmit="javascript:return WebForm_OnSubmit();" id="Form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="
+__VIEWSTATE" value="">
+</div>
+
+<script async="" type="text/javascript" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/gpt.js"></script><script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/WebResource.axd" type="text/javascript"></script>
+
+<script language="JavaScript">
+									function ctlent(evt,id)
+											{
+												if(evt.ctrlKey && evt.keyCode == 13)
+												{	
+													try
+													{
+														TempSave(id);
+													}
+													catch(ex)
+													{
+													}
+													finally
+													{
+													    __doPostBack('AjaxHolder$PostComment$btnSubmit','')
+													}
+												}
+		
+												}</script>
+												<script language="JavaScript">function SetReplyAuhor(author){document.getElementById('AjaxHolder_PostComment_tbComment').value+="@"+author+"\n";document.getElementById('AjaxHolder_PostComment_tbComment').focus();return false}</script>
+<script src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+        
+
+<table width="100%" class="Framework" cellspacing="0" cellpadding="0">
+	<tbody><tr>
+		<td colspan="2">
+			
+<div id="top">
+<table width="100%" cellpadding="8" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="">
+			<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.blogjava.net/icewee/">ice world</a></h1>
+			There is nothing too difficult if you put your heart into it.
+		</td>
+	</tr>
+</tbody></table>
+</div>
+<div id="sub">
+<div class="BlogStats">posts - 96, comments - 54, trackbacks - 0, articles - 0</div></div>
+
+
+</td>
+	</tr>
+	<tr>
+		<td class="LeftCell">
+			<div id="leftmenu" style="display: inline;">
+				
+					
+<h3>导航</h3>
+<ul>
+	<li>
+		<a id="MyLinks1_HomeLink" href="http://www.blogjava.net/">BlogJava</a>
+	</li><li>
+		<a id="MyLinks1_MyHomeLink" href="http://www.blogjava.net/icewee/">首页</a>
+	</li><li>
+		<a id="MyLinks1_NewPostLink" href="http://www.blogjava.net/icewee/admin/EditPosts.aspx?opt=1">新随笔</a>
+	</li><li>
+		<a id="MyLinks1_ContactLink" accesskey="9" href="http://www.blogjava.net/icewee/contact.aspx?id=1">联系</a>
+	</li><li>
+		<a id="MyLinks1_XMLLink" href="http://www.blogjava.net/icewee/rss"><img src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml.gif" alt="RSS 2.0 Feed" style="border-width:0px;"></a><a id="MyLinks1_Syndication" href="http://www.blogjava.net/icewee/rss">聚合</a>
+	</li><li>
+		<a id="MyLinks1_Admin" href="http://www.blogjava.net/icewee/admin/EditPosts.aspx">管理</a></li>
+</ul>
+
+					
+					<table id="Calendar1_entryCal" class="Cal" cellspacing="0" cellpadding="0" title="日历" border="0" style="border-width:1px;border-style:solid;border-collapse:collapse;">
+	<tbody><tr><td colspan="7" style="background-color:Silver;"><table class="CalTitle" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+		<tbody><tr><td class="CalNextPrev" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V4718')" style="color:Black" title="转到上一个月">&lt;</a></td><td align="center" style="width:70%;">2013年1月</td><td class="CalNextPrev" align="right" style="width:15%;"><a href="javascript:__doPostBack('Calendar1$entryCal','V4780')" style="color:Black" title="转到下一个月">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center" style="width:14%;">30</td><td class="CalOtherMonthDay" align="center" style="width:14%;">31</td><td align="center" style="width:14%;">1</td><td align="center" style="width:14%;">2</td><td align="center" style="width:14%;">3</td><td align="center" style="width:14%;">4</td><td class="CalWeekendDay" align="center" style="width:14%;">5</td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;">6</td><td align="center" style="width:14%;">7</td><td align="center" style="width:14%;">8</td><td align="center" style="width:14%;">9</td><td align="center" style="width:14%;">10</td><td align="center" style="width:14%;">11</td><td class="CalWeekendDay" align="center" style="width:14%;">12</td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;">13</td><td align="center" style="width:14%;">14</td><td align="center" style="width:14%;">15</td><td align="center" style="width:14%;">16</td><td align="center" style="width:14%;">17</td><td align="center" style="width:14%;">18</td><td class="CalWeekendDay" align="center" style="width:14%;">19</td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;">20</td><td align="center" style="width:14%;">21</td><td align="center" style="width:14%;">22</td><td align="center" style="width:14%;">23</td><td align="center" style="width:14%;">24</td><td align="center" style="width:14%;">25</td><td class="CalWeekendDay" align="center" style="width:14%;">26</td></tr><tr><td class="CalWeekendDay" align="center" style="width:14%;">27</td><td align="center" style="width:14%;">28</td><td align="center" style="width:14%;">29</td><td align="center" style="width:14%;"><a href="http://www.blogjava.net/icewee/archive/2013/01/30.html"><u>30</u></a></td><td align="center" style="width:14%;">31</td><td class="CalOtherMonthDay" align="center" style="width:14%;">1</td><td class="CalOtherMonthDay" align="center" style="width:14%;">2</td></tr><tr><td class="CalOtherMonthDay" align="center" style="width:14%;">3</td><td class="CalOtherMonthDay" align="center" style="width:14%;">4</td><td class="CalOtherMonthDay" align="center" style="width:14%;">5</td><td class="CalOtherMonthDay" align="center" style="width:14%;">6</td><td class="CalOtherMonthDay" align="center" style="width:14%;">7</td><td class="CalOtherMonthDay" align="center" style="width:14%;">8</td><td class="CalOtherMonthDay" align="center" style="width:14%;">9</td></tr>
+</tbody></table>
+
+					
+<h3>常用链接</h3>
+<ul>
+		<li><a id="SingleColumn1_ctl00_repeaterLinks_ctl01_lnkLinkItem" href="http://www.blogjava.net/icewee/MyPosts.html">我的随笔</a></li>
+	
+		<li><a id="SingleColumn1_ctl00_repeaterLinks_ctl02_lnkLinkItem" href="http://www.blogjava.net/icewee/MyComments.html">我的评论</a></li>
+	
+		<li><a id="SingleColumn1_ctl00_repeaterLinks_ctl03_lnkLinkItem" href="http://www.blogjava.net/icewee/OtherPosts.html">我的参与</a></li>
+	
+		<li><a id="SingleColumn1_ctl00_repeaterLinks_ctl04_lnkLinkItem" href="http://www.blogjava.net/icewee/RecentComments.html">最新评论</a></li>
+	</ul>
+<h3>留言簿<span style="font-size:11px;font-weight:normal;">(3)</span></h3>
+<ul>
+	<li>
+		<a id="SingleColumn1_ctl01_lnkMessages" href="http://www.blogjava.net/icewee/Contact.aspx?id=1">给我留言</a>
+	</li><li>
+		<a id="SingleColumn1_ctl01_lnkPublicMsgView" href="http://www.blogjava.net/icewee/default.aspx?opt=msg">查看公开留言</a>
+	</li><li>
+		<a id="SingleColumn1_ctl01_lnkPrivateMsgView" href="http://www.blogjava.net/icewee/admin/MyMessages.aspx">查看私人留言</a>
+	</li>
+</ul>
+
+		<h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl01_Link" href="http://www.blogjava.net/icewee/category/49004.html">ArcGIS(2)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl01_RssLink" title="Subscribe to ArcGIS(2)" href="http://www.blogjava.net/icewee/category/49004.html/rss"><img title="Subscribe to ArcGIS(2)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl02_Link" href="http://www.blogjava.net/icewee/category/49005.html">CSS(4)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl02_RssLink" title="Subscribe to CSS(4)" href="http://www.blogjava.net/icewee/category/49005.html/rss"><img title="Subscribe to CSS(4)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl03_Link" href="http://www.blogjava.net/icewee/category/49012.html">Database(14)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl03_RssLink" title="Subscribe to Database(14)" href="http://www.blogjava.net/icewee/category/49012.html/rss"><img title="Subscribe to Database(14)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl04_Link" href="http://www.blogjava.net/icewee/category/49006.html">eclipse(10)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl04_RssLink" title="Subscribe to eclipse(10)" href="http://www.blogjava.net/icewee/category/49006.html/rss"><img title="Subscribe to eclipse(10)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl05_Link" href="http://www.blogjava.net/icewee/category/49007.html">Hibernate(1)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl05_RssLink" title="Subscribe to Hibernate(1)" href="http://www.blogjava.net/icewee/category/49007.html/rss"><img title="Subscribe to Hibernate(1)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl06_Link" href="http://www.blogjava.net/icewee/category/49008.html">Java(28)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl06_RssLink" title="Subscribe to Java(28)" href="http://www.blogjava.net/icewee/category/49008.html/rss"><img title="Subscribe to Java(28)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl07_Link" href="http://www.blogjava.net/icewee/category/49009.html">Javascript(6)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl07_RssLink" title="Subscribe to Javascript(6)" href="http://www.blogjava.net/icewee/category/49009.html/rss"><img title="Subscribe to Javascript(6)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl08_Link" href="http://www.blogjava.net/icewee/category/49013.html">Others(11)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl08_RssLink" title="Subscribe to Others(11)" href="http://www.blogjava.net/icewee/category/49013.html/rss"><img title="Subscribe to Others(11)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl09_Link" href="http://www.blogjava.net/icewee/category/49010.html">Strut1(3)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl09_RssLink" title="Subscribe to Strut1(3)" href="http://www.blogjava.net/icewee/category/49010.html/rss"><img title="Subscribe to Strut1(3)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl10_Link" href="http://www.blogjava.net/icewee/category/49042.html">Tomcat(6)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl10_RssLink" title="Subscribe to Tomcat(6)" href="http://www.blogjava.net/icewee/category/49042.html/rss"><img title="Subscribe to Tomcat(6)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl11_Link" href="http://www.blogjava.net/icewee/category/53319.html">Weblogic(1)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl11_RssLink" title="Subscribe to Weblogic(1)" href="http://www.blogjava.net/icewee/category/53319.html/rss"><img title="Subscribe to Weblogic(1)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl12_Link" href="http://www.blogjava.net/icewee/category/49011.html">Windows(12)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl12_RssLink" title="Subscribe to Windows(12)" href="http://www.blogjava.net/icewee/category/49011.html/rss"><img title="Subscribe to Windows(12)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl13_Link" href="http://www.blogjava.net/icewee/category/51738.html">加解密(5)</a><a id="SingleColumn1_Categories_CatList_ctl00_LinkList_ctl13_RssLink" title="Subscribe to 加解密(5)" href="http://www.blogjava.net/icewee/category/51738.html/rss"><img title="Subscribe to 加解密(5)" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml_small.gif" style="border-width:0px;"></a></li>
+			
+				</ul>
+			
+	
+		<h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl01_Link" href="http://www.blogjava.net/icewee/archive/2013/08.html">2013年8月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl02_Link" href="http://www.blogjava.net/icewee/archive/2013/07.html">2013年7月 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl03_Link" href="http://www.blogjava.net/icewee/archive/2013/06.html">2013年6月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl04_Link" href="http://www.blogjava.net/icewee/archive/2013/03.html">2013年3月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl05_Link" href="http://www.blogjava.net/icewee/archive/2013/02.html">2013年2月 (4)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl06_Link" href="http://www.blogjava.net/icewee/archive/2013/01.html">2013年1月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl07_Link" href="http://www.blogjava.net/icewee/archive/2012/09.html">2012年9月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl08_Link" href="http://www.blogjava.net/icewee/archive/2012/07.html">2012年7月 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl09_Link" href="http://www.blogjava.net/icewee/archive/2012/06.html">2012年6月 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl10_Link" href="http://www.blogjava.net/icewee/archive/2012/05.html">2012年5月 (8)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl11_Link" href="http://www.blogjava.net/icewee/archive/2012/04.html">2012年4月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl12_Link" href="http://www.blogjava.net/icewee/archive/2011/11.html">2011年11月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl13_Link" href="http://www.blogjava.net/icewee/archive/2011/10.html">2011年10月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl14_Link" href="http://www.blogjava.net/icewee/archive/2011/09.html">2011年9月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl15_Link" href="http://www.blogjava.net/icewee/archive/2011/08.html">2011年8月 (1)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl16_Link" href="http://www.blogjava.net/icewee/archive/2011/06.html">2011年6月 (2)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl17_Link" href="http://www.blogjava.net/icewee/archive/2011/05.html">2011年5月 (3)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl18_Link" href="http://www.blogjava.net/icewee/archive/2011/04.html">2011年4月 (61)</a></li>
+			
+				<li><a id="SingleColumn1_Categories_CatList_ctl01_LinkList_ctl19_Link" href="http://www.blogjava.net/icewee/archive/2007/12.html">2007年12月 (1)</a></li>
+			
+				</ul>
+			
+	
+
+<script language="JavaScript">
+function SearchGoogle(key,evt,site)
+		{
+			if(evt.keyCode==13 || evt.keyCode==0 || evt.type =='click')
+			{
+				key.focus();
+				var keystr = encodeURIComponent(key.value);
+				url = "http://www.google.com/search?q=";
+				url = url+keystr;
+				url += "&ie=UTF-8&oe=GB2312&hl=zh-CN&domains="+site+"&sitesearch="+site;
+				window.location=url;
+				return false;
+			}
+		}
+</script>
+<h3>搜索</h3>
+<ul>
+	<li>
+		</li><li><input style="WIDTH: 130px" type="text" name="q" id="q" onkeydown="return SearchGoogle(document.getElementById(&#39;q&#39;),event,&#39;www.blogjava.net/icewee&#39;)">&nbsp;<input onclick="SearchGoogle(document.getElementById(&#39;q&#39;),event,&#39;www.blogjava.net/icewee&#39;)" type="button" value="搜索" name="sa">
+	</li>
+</ul>
+
+<h3>最新评论
+	<a id="SingleColumn1__290302b_RSSHyperlink1" href="http://www.blogjava.net/icewee/CommentsRSS.aspx"><img src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/xml.gif" style="border-width:0px;"></a></h3>
+<div class="RecentComment">
+	
+			<ul>
+		
+			<li style="word-break:break-all">
+				<a id="SingleColumn1__290302b_CommentList_ctl01_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/09/09/379760.html#403857">1.&nbsp;re: Java MD5校验工具类</a>
+			</li>
+			<li style="word-break:break-all">
+				啊丰富的
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--富商大贾</li>
+		
+			<li style="word-break:break-all">
+				<a id="SingleColumn1__290302b_CommentList_ctl02_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/09/04/361054.html#403667">2.&nbsp;re: Error 1935的解决方法</a>
+			</li>
+			<li style="word-break:break-all">
+				我按照你上面给的去修改注册表，为什么还是不行呢？我有一款软件还是安装不了。还有其他的解决方法吗？
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--Fred_xiao</li>
+		
+			<li style="word-break:break-all">
+				<a id="SingleColumn1__290302b_CommentList_ctl03_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/09/04/361054.html#403666">3.&nbsp;re: Error 1935的解决方法</a>
+			</li>
+			<li style="word-break:break-all">
+				我按照你上面给的去修改注册表，为什么还是不行呢？我有一款软件还是安装不了。
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--Fred_xiao</li>
+		
+			<li style="word-break:break-all">
+				<a id="SingleColumn1__290302b_CommentList_ctl04_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/08/07/382399.html#402509">4.&nbsp;re: CXF+Spring+Tomcat简明示例</a>
+			</li>
+			<li style="word-break:break-all">
+				博主能否提供源码啊？谢谢
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--开发吧</li>
+		
+			<li style="word-break:break-all">
+				<a id="SingleColumn1__290302b_CommentList_ctl05_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/08/06/382399.html#402453">5.&nbsp;re: CXF+Spring+Tomcat简明示例</a>
+			</li>
+			<li style="word-break:break-all">
+				少了 Woodstox这个包,否则报错java.lang.RuntimeException: Cannot create a secure XMLInputFactory  
+			</li>
+			<li style="text-align:right;margin-right:4px">
+				--derekwu</li>
+		
+			</ul>
+		
+</div>
+
+<h3>阅读排行榜</h3>
+<div class="RecentComment">
+	
+			<ul style="word-break:break-all">
+		
+			<li>
+				<a id="SingleColumn1__2ab07f5_TopList_ctl01_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/05/19/378570.html">1.&nbsp;java RSA加密解密(8530)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2ab07f5_TopList_ctl02_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/07/06/382399.html">2.&nbsp;CXF+Spring+Tomcat简明示例(5059)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2ab07f5_TopList_ctl03_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/06/04/379947.html">3.&nbsp;Java Tomcat SSL 服务端/客户端双向认证（一）(3605)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2ab07f5_TopList_ctl04_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/05/19/378554.html">4.&nbsp;Java DES文件加密解密  javax.crypto.BadPaddingException: Given final block not properly padded(3513)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2ab07f5_TopList_ctl05_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/10/12/361054.html">5.&nbsp;Error 1935的解决方法(2314)</a>
+			</li>
+		
+			</ul>
+		
+</div>
+
+<h3>评论排行榜</h3>
+<div class="RecentComment">
+	
+			<ul style="word-break:break-all">
+		
+			<li>
+				<a id="SingleColumn1__2810c43_TopList_ctl01_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/07/06/382399.html">1.&nbsp;CXF+Spring+Tomcat简明示例(13)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2810c43_TopList_ctl02_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/06/04/379947.html">2.&nbsp;Java Tomcat SSL 服务端/客户端双向认证（一）(12)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2810c43_TopList_ctl03_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/16/353213.html">3.&nbsp;网页文章保存到数据库丢失格式的解决方法(5)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2810c43_TopList_ctl04_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/05/19/378570.html">4.&nbsp;java RSA加密解密(4)</a>
+			</li>
+		
+			<li>
+				<a id="SingleColumn1__2810c43_TopList_ctl05_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2012/05/21/378719.html">5.&nbsp;Java数字证书对文件/加密/解密/签名/校验签名(3)</a>
+			</li>
+		
+			</ul>
+		
+</div>
+
+				
+			</div>
+		</td>
+		<td class="MainCell" width="100%">
+			<div id="main">
+				
+					
+	<div class="post">
+		<div class="posthead">
+			<h2>
+				<a id="viewpost1_TitleUrl" class="singleposttitle" href="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/Linux 64bit下Oracle11g安装手册 - ice world - BlogJava.htm">Linux 64bit下Oracle11g安装手册</a>
+			</h2>
+ 			Posted on 2013-01-30 16:56 <a href="http://www.blogjava.net/icewee/">IceWee</a> 阅读(1120) <a href="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html#Post">评论(1)</a> &nbsp;<a href="http://www.blogjava.net/icewee/admin/EditPosts.aspx?postid=394943">编辑</a> &nbsp;<a href="http://www.blogjava.net/icewee/AddToFavorite.aspx?id=394943">收藏</a>  所属分类: <a href="http://www.blogjava.net/icewee/category/49012.html">Database</a> 
+			<img src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/394943.html" width="1" height="1">
+			
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html"
+dc:identifier="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html"
+dc:title="Linux 64bit下Oracle11g安装手册"
+trackback:ping="http://www.blogjava.net/icewee/services/trackbacks/394943.aspx" />
+</rdf:RDF>
+-->
+
+		</div>
+		<div class="postbody">
+
+<p align="left"><strong><span style="font-family: Tahoma; font-size: 18pt;">基本信息</span></strong></p><div><span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">操作系统：CentOS&nbsp;Release&nbsp;</span><span style="color: rgb(0, 0, 0);">6.3</span><span style="color: rgb(0, 0, 0);">&nbsp;(Final)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">内核版本：Kernel&nbsp;Linux&nbsp;</span><span style="color: rgb(0, 0, 0);">2.6.32</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">279</span><span style="color: rgb(0, 0, 0);">.el6.x86_64<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">Oracle版本：Oracle&nbsp;11g&nbsp;Release2<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">安装包：linux.x64_11gR2_database_1of2.zip、linux.x64_11gR2_database_2of2.zip</span></div></span></div><p><strong><span><br></span><span style="font-family: Tahoma; font-size: 18pt;">安装准备</span></strong></p><p><strong><em><span style="font-family: Tahoma; font-size: 12pt;">上传安装文件</span></em></strong></p><p><span style="font-family: Tahoma; font-size: 12pt;">将两个压缩文件覆盖解压后得到文件夹</span><span style="font-family: Tahoma; font-size: 12pt;">database</span><span style="font-family: Tahoma; font-size: 12pt;">，借助</span><span style="font-family: Tahoma; font-size: 12pt;">SSH</span><span style="font-family: Tahoma; font-size: 12pt;">工具上传到服务器上，目录如：<span style="font-family: Tahoma; font-size: 12pt;">/home/database<br></span></span><strong><em><br></em></strong><strong style="font-size: 12pt;"><em>创建组</em></strong></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;groupadd&nbsp;dba<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;groupadd&nbsp;oinstall</span></div><p>&nbsp;<strong><em><span style="font-family: Tahoma; font-size: 12pt;"><br>创建用户</span></em><em>&nbsp;</em></strong></p><div><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;useradd&nbsp;–g&nbsp;oinstall&nbsp;–G&nbsp;dba&nbsp;oracle</span></div></div><p><em></em>&nbsp;<br><strong style="font-family: Tahoma; font-size: 12pt;"><em>修改用户密码</em>&nbsp;</strong>&nbsp;</p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;passwd&nbsp;oracle</span></div><p><strong><em><span><br></span><span style="font-family: Tahoma; font-size: 12pt;">创建安装目录</span></em></strong></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;mkdir&nbsp;-p&nbsp;/opt/oracle/product/11.2/db_1<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;mkdir&nbsp;-p&nbsp;/opt/oraInventory<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;mkdir&nbsp;-p&nbsp;/opt/oracle/oradata<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;mkdir&nbsp;-p&nbsp;/var/opt/oracle</span></div><p><strong><em><span><br></span><span style="font-family: Tahoma; font-size: 12pt;">设置目录的所有者、所属组和权限</span></em></strong><span></span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;chown&nbsp;-R&nbsp;oracle.oinstall&nbsp;/opt/oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chown&nbsp;-R&nbsp;oracle.oinstall&nbsp;/opt/oracle/oradata<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chown&nbsp;-R&nbsp;oracle.oinstall&nbsp;/opt/oracle/product/11.2/db_1<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chown&nbsp;-R&nbsp;oracle.dba&nbsp;/opt/oraInventory<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chown&nbsp;oracle.dba&nbsp;/var/opt/oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chmod&nbsp;-R&nbsp;775&nbsp;/opt/oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;chmod&nbsp;-R&nbsp;755&nbsp;/var/opt/oracle</span></div><p><strong><em><span><br></span><span style="font-family: Tahoma; font-size: 12pt;">设置用户oracle</span><span style="font-family: Tahoma; font-size: 12pt;">的环境变量</span></em></strong><span></span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;su&nbsp;–&nbsp;oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">#&nbsp;vim&nbsp;/home/oracle/.bash_profile</span></div><p><span><br></span><span style="font-family: Tahoma; font-size: 12pt;">在文件中添加如下：</span><span></span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">export&nbsp;ORACLE_BASE</span><span style="color: rgb(0, 0, 0);">=/</span><span style="color: rgb(0, 0, 0);">opt</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$ORACLE_BASE</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">product</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(128, 0, 0);">11.2</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">db_1<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;ORACLE_SID</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);">orcl<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;ORACLE_OWNER</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);">oracle<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;ORACLE_TERM</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);">vt100<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;PATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$PATH</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">bin</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">bin<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;PATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">bin</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$PATH</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">LD_LIBRARY_PATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">lib</span><span style="color: rgb(0, 0, 0);">:/</span><span style="color: rgb(0, 0, 0);">lib</span><span style="color: rgb(0, 0, 0);">:/</span><span style="color: rgb(0, 0, 0);">usr</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">lib</span><span style="color: rgb(0, 0, 0);">:/</span><span style="color: rgb(0, 0, 0);">usr</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 255);">local</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">lib<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;LD_LIBRARY_PATH<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">CLASSPATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">JRE</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">jlib</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">rdbms</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">jlib<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">CLASSPATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$CLASSPATH</span><span style="color: rgb(0, 0, 0);">:</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">network</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">jlib<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">export&nbsp;CLASSPATH<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">PATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$PATH</span><span style="color: rgb(0, 0, 0);">:/</span><span style="color: rgb(0, 0, 0);">usr</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">sbin;&nbsp;export&nbsp;PATH<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">PATH</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$PATH</span><span style="color: rgb(0, 0, 0);">:/</span><span style="color: rgb(0, 0, 0);">usr</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">bin;&nbsp;export&nbsp;PATH<br><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">ORA_NLS33</span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(128, 0, 128);">$ORACLE_HOME</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">nls</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">admin</span><span style="color: rgb(0, 0, 0);">/</span><span style="color: rgb(0, 0, 0);">data</span></div><p><br><span style="font-family: Tahoma; font-size: 12pt;">保存退出，执行以下命令使得配置立刻生效或使用Oracle重登陆系统</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;source&nbsp;$HOME/.bash_profile</span></div><p>&nbsp;<strong><span><br style="font-family: Tahoma; font-size: 18pt;"></span><span style="font-family: Tahoma; font-size: 18pt;">开始安装</span></strong></p><p><span style="font-family: Tahoma; font-size: 12pt;">进入数据库安装文件</span><span style="font-family: Tahoma; font-size: 12pt;">(database</span><span style="font-family: Tahoma; font-size: 12pt;">文件夹</span><span style="font-family: Tahoma; font-size: 12pt;">)</span><span style="font-family: Tahoma; font-size: 12pt;">所在目录，如：</span><span style="font-family: Tahoma; font-size: 12pt;">/home/</span><span style="font-family: Tahoma; font-size: 12pt;">，为所有用户授权</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;chmod&nbsp;–R&nbsp;777&nbsp;database</span></div><p>&nbsp;</p><p><span style="font-family: Tahoma; font-size: 12pt;">切换到</span><span style="font-family: Tahoma; font-size: 12pt;">oracle</span><span style="font-family: Tahoma; font-size: 12pt;">用户，使用</span><span style="font-family: Tahoma; font-size: 12pt;">oracle</span><span style="font-family: Tahoma; font-size: 12pt;">重登陆或使用下面命令切换用户</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;su&nbsp;–&nbsp;oracle</span></div><p>&nbsp;</p><p><span style="font-family: Tahoma; font-size: 12pt;">进入</span><span style="font-family: Tahoma; font-size: 12pt;">database</span><span style="font-family: Tahoma; font-size: 12pt;">目录，运行安装文件开始安装</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;./runInstaller</span></div><p><span><br></span><span style="font-family: Tahoma; font-size: 12pt;">进入图形化界面，一步步安装，取消勾选</span><span style="font-family: Tahoma; font-size: 12pt;">I wish…</span><span style="font-family: Tahoma; font-size: 12pt;">（依照个人），点击</span><span style="font-family: Tahoma; font-size: 12pt;">Next</span><span style="font-family: Tahoma; font-size: 12pt;">，弹出确认框再点</span><span style="font-family: Tahoma; font-size: 12pt;">Y</span>es<br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/01.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">三选一界面，选择第二项：</span><span style="font-family: Tahoma; font-size: 12pt;">Install da</span><span style="font-family: Tahoma; font-size: 12pt;">tabase software only</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/02.jpg" width="800" height="600"><span style="font-family: Tahoma;">
+</span><br><br><span style="font-family: Tahoma; font-size: 12pt;">保持默认：Singel instance database installation，点击Next</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/03.jpg" width="800" height="600"><span style="font-family: Tahoma;">&nbsp;
+</span><br><span style="font-size: 12pt;">&nbsp;</span><br><span style="font-family: Tahoma; font-size: 12pt;">选择产品语言，默认英语，</span><span style="font-family: Tahoma; font-size: 12pt;">附加选择了简体中文，点击Next </span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/04.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">选择数据库版本，默认企业版，点击Next<br></span><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/05.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">配置Oracle安装目录，由于安装前环境变量的配置</span><span style="font-family: Tahoma; font-size: 12pt;">，安装程序自动读取配置，自动选择好了Oracle Base和Software Location</span><span style="font-family: Tahoma;">，</span><span style="font-family: Tahoma; font-size: 12pt;">如图所示，点</span><span style="font-family: Tahoma; font-size: 12pt;">击</span><span style="font-family: Tahoma; font-size: 12pt;">Next</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/06.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">同上，Oracle Inventory Directory目录也自动选择好了，oraIn</span><span style="font-family: Tahoma; font-size: 12pt;">ve</span><span style="font-family: Tahoma; font-size: 12pt;">ntory </span><span style="font-family: Tahoma; font-size: 12pt;">Group Nam</span><span style="font-family: Tahoma; font-size: 12pt;">e选</span><span style="font-family: Tahoma; font-size: 12pt;">择安装前创建的组dba，点击Next</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/07.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">保持默认，两个组都选择的dba，点击Next</span><br>
+<img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/08.jpg"><br><br><span style="font-family: Tahoma; font-size: 12pt;">安</span><span style="font-family: Tahoma; font-size: 12pt;">装检</span><span style="font-size: 12pt;">查中</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/09.jpg" width="800" height="600"><br><br><span style="font-size: 12pt;">检</span><span style="font-family: Tahoma; font-size: 12pt;">查结束，不满足</span><span style="font-family: Tahoma; font-size: 12pt;">条件</span><span style="font-family: Tahoma; font-size: 12pt;">列表</span><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/10.jpg" width="800" height="600"><br><br><span style="font-family: Tahoma; font-size: 12pt;">解决以上错误，新建命令行窗口，切换到root用户，需要输入root的</span>密码</p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> su – root</span></div><br><span style="font-size: 12pt;">修改进程数和最大会话数的设置，执行</span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> vi /etc/security/limits.conf</span></div><br><span style="font-size: 12pt;">(在该文件的最后追加下面四行)</span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">oracle&nbsp;&nbsp; soft&nbsp;&nbsp;&nbsp; nproc&nbsp;&nbsp; </span><span style="color: rgb(128, 0, 0);">2047</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">oracle&nbsp;&nbsp; hard&nbsp;&nbsp;&nbsp; nproc&nbsp;&nbsp; </span><span style="color: rgb(128, 0, 0);">16384</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">oracle  &nbsp; soft   &nbsp;&nbsp; nofile  </span><span style="color: rgb(128, 0, 0);">&nbsp; 1024</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">oracle&nbsp;&nbsp; hard&nbsp;&nbsp;&nbsp; nofile&nbsp;&nbsp; </span><span style="color: rgb(128, 0, 0);">65536</span></div><br><span style="font-size: 12pt;">系统内核参数设置</span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> vi /etc/sysctl.conf</span></div><br><span style="font-size: 12pt;">(在该文件后追加以下内容)</span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">kernel</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">sem </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">250</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">32000</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">100</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">128</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">net</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">ipv4</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">ip_local_port_range </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">9000</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">65500</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">fs</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">file</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">max </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">6815744</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">net</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">core</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">rmem_default </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">262144</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">net</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">core</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">rmem_max </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">4194304</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">net</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">core</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">wmem_default </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">262144</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">net</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">core</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">wmem_max </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">1048576</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">fs</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(0, 0, 0);">aio</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">max</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">nr </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">1048576</span></div><br><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;">保存退出，立即生效执行：</span></span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> cd /etc<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"># sysctl -p</span></div><br><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;">安装以下列表中的包(使用yum在线安装)，其中pdksh-5.2.14没有找到，不安装也没有问题</span></span></span><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">-libaio-</span><span style="color: rgb(0, 0, 0);">0.3.105</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-libaio-devel-</span><span style="color: rgb(0, 0, 0);">0.3.105</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-libaio-devel-</span><span style="color: rgb(0, 0, 0);">0.3.105</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-glibc-</span><span style="color: rgb(0, 0, 0);">2.3.4</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">2.41</span><span style="color: rgb(0, 0, 0);">(i686)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-compat-libstdc++-</span><span style="color: rgb(0, 0, 0);">33</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">3.2.3</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-compat-libstdc++-</span><span style="color: rgb(0, 0, 0);">33</span><span style="color: rgb(0, 0, 0);">-</span><span style="color: rgb(0, 0, 0);">3.2.3</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-gcc-c++-</span><span style="color: rgb(0, 0, 0);">3.4.6</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-elfutils-libelf-devel-</span><span style="color: rgb(0, 0, 0);">0.97</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-libgcc-</span><span style="color: rgb(0, 0, 0);">3.4.6</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-libstdc++-</span><span style="color: rgb(0, 0, 0);">3.4.6</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-unixODBC-</span><span style="color: rgb(0, 0, 0);">2.2.11</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-unixODBC-</span><span style="color: rgb(0, 0, 0);">2.2.11</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-unixODBC-devel-</span><span style="color: rgb(0, 0, 0);">2.2.11</span><span style="color: rgb(0, 0, 0);">(i386)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-unixODBC-devel-</span><span style="color: rgb(0, 0, 0);">2.2.11</span><span style="color: rgb(0, 0, 0);">(x86_64)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">-pdksh-</span><span style="color: rgb(0, 0, 0);">5.2.14</span><span style="color: rgb(0, 0, 0);">(x86_64)</span></div><br><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;">以上步骤完成后点击按钮Check Again，发现不满足列表并没有清除，而是少了一些，此时勾选右侧复选框Ignore all即可向下安装了，直到安装完成。</span></span></span><br><strong style="font-family: Tahoma;"><br><br></strong><strong style="font-family: Tahoma; font-size: 18pt;">安装监听器<br></strong><br><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;"><span style="font-family: Tahoma; font-size: 12pt;">使用oracle用户登陆系统或在命令行窗口切换到oracle用户，执行</span></span></span></span></span><br><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> netca</span></div><br><span style="font-size: 12pt;">进入图形化配置，直接默认下一步，到最后完成，其中你也可以修改监听去的名称，协议，端口。<br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/11.jpg" width="600" height="400"></span><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/12.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/13.jpg" width="600" height="400">&nbsp;
+<br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/14.jpg" width="600" height="400"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/15.jpg" width="600" height="400">
+<br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/16.jpg" width="600" height="400"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/17.jpg" width="600" height="400">
+<br>&nbsp;<br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/18.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/19.jpg" width="694" height="301">
+<br><font face="Tahoma"><br><span style="font-size: 12pt;">安装完成后可以使用如下命令来查看监听是否配置成功</span></font><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);"> ps –ef</span></div><span style="font-size: 12pt;"><br></span><br><span style="font-family: Tahoma; font-size: 18pt;"><strong>安装数据库程序</strong></span><p><span style="font-family: Tahoma; font-size: 12pt;">执行</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 128, 0);">#</span><span style="color: rgb(0, 128, 0);">&nbsp;dbca</span></div><p><span style="font-family: Tahoma; font-size: 12pt;"><br>进入图形化配置界面，几乎全Next<br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/20.jpg" width="380" height="279"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/21.jpg" width="750" height="536"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/22.jpg" width="750" height="536"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/23.jpg" width="750" height="537"><br><br>配置全局数据库名称，如果该服务器只安装这一个数据库建议使用orcl，鉴于习惯作<br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/24.jpg" width="750" height="536"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/25.jpg" width="750" height="536"><br><br>备配置四个内置超级管理员密码，建议统一密码，便于记忆用<br></span><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/26.jpg"><br></p><p><span style="font-family: Tahoma; font-size: 12pt;">提示密码过于简单，不管它，点击Yes<br></span><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/27.jpg" width="419" height="250"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/28.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/29.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/30.jpg"><br></p><p><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/31.jpg" width="750" height="536"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/32.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/33.jpg"><br><br><img border="0" alt="" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/34.jpg" width="600" height="600"><br></p><p><span style="font-size: 12pt;">到这数据库实例就算创建完成了！并且会自动启动！<br>PS：10g客户端连接11g服务器需要手动修改客户端文件，如下：</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">X:\oracle\product\</span><span style="color: rgb(0, 0, 0);">10.2.0</span><span style="color: rgb(0, 0, 0);">\client_1\network\ADMIN<br></span></div><p><br><span style="font-family: Tahoma; font-size: 12pt;">文件名：</span><br><span style="font-family: Tahoma; font-size: 12pt;">tnsnames.ora</span><br><span style="font-family: Tahoma; font-size: 12pt;">修改前不要忘记备份原文件，手动配置要连接的11g数据库连接信息，如：</span></p><div style="padding: 4px 5px 4px 4px; border: 1px solid rgb(204, 204, 204); width: 98%; font-size: 13px; word-break: break-all; background-color: rgb(238, 238, 238);"><!--<br /><br />Code highlighting produced by Actipro CodeHighlighter (freeware)<br />http://www.CodeHighlighter.com/<br /><br />--><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif"><span style="color: rgb(0, 0, 0);">ORCL_11g </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp; (DESCRIPTION </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp; (ADDRESS_LIST </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (ADDRESS </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> (PROTOCOL </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> TCP)(HOST </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">172.25</span><span style="color: rgb(0, 0, 0);">.</span><span style="color: rgb(128, 0, 0);">78.88</span><span style="color: rgb(0, 0, 0);">)(PORT </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(128, 0, 0);">1521</span><span style="color: rgb(0, 0, 0);">))<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp; )<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp; (CONNECT_DATA </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"><br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (SID </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> orcl)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (SERVER </span><span style="color: rgb(0, 0, 0);">=</span><span style="color: rgb(0, 0, 0);"> DEDICATED)<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp;&nbsp;&nbsp; )<br><img alt="" align="top" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/None.gif">&nbsp; )</span></div><p><span style="font-size: 12pt;"><br>其中：<br>ORCL_11g为本地连接服务名<br>172.25.78.88为数据库所在服务器IP<br>你会发现CONNECT_DATA内部和10g的配置不同，这就是区别，导致PL/SQL连不上11g<br><span style="font-size: 12pt;"></span><br><br><br></span><br>&nbsp;
+ 
+ 
+ 
+</p> 
+ 
+ 
+ 
+ 
+</div>
+	</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('AjaxHolder$scriptmanager1', document.getElementById('Form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tAjaxHolder$UpdatePanel1'], [], [], 90);
+//]]>
+</script>
+
+<div id="AjaxHolder_UpdatePanel1">
+	    
+    <a name="pagedcomment"></a>
+<h3>Feedback</h3>
+	
+			<div class="post">
+				<div class="posthead">
+					<h2>
+						<a title="permalink: re: Linux 64bit下Oracle11g安装手册" href="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html#401828">#</a>&nbsp;<a name="401828"></a>re: Linux 64bit下Oracle11g安装手册<a name="Post"></a>&nbsp;&nbsp;<a onclick="return SetReplyAuhor(&quot;赵坤&quot;)" href="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html#post">回复</a>&nbsp;&nbsp;<a title="查看该作者发表过的评论" href="http://www.blogjava.net/comment?author=%e8%b5%b5%e5%9d%a4" target="_blank">更多评论</a>
+						<a id="AjaxHolder_Comments_CommentList_ctl00_DeleteLink" href="javascript:__doPostBack('AjaxHolder$Comments$CommentList$ctl00$DeleteLink','')"></a>&nbsp;&nbsp;<a id="AjaxHolder_Comments_CommentList_ctl00_EditLink"></a>
+					</h2>
+					2013-07-22 13:59 by <a id="AjaxHolder_Comments_CommentList_ctl00_NameLink" target="_blank">赵坤</a>
+				</div>
+				<div class="postbody">good</div>
+			</div>
+		
+<style>
+td { font-size: 12px }
+.commentTextBox 
+{ 
+    font-family : Verdana; 
+    font-size: 13px;
+ }
+</style>
+<!--Beging Temp Save-->
+<style>.userData { BEHAVIOR: url(#default#userdata) }
+	</style>
+<div class="userData" id="CommentsPersistDiv"></div>
+
+<script type="text/javascript">
+function pageLoad()
+{
+    Sys.WebForms.PageRequestManager.getInstance().add_initializeRequest(handleInitializeRequest);
+    //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(handleEndRequest);
+}
+
+function handleInitializeRequest(sender, args)
+{
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+    var eid = args.get_postBackElement().id;
+    if (eid.indexOf("DeleteLink")>0) 
+    {
+       args.get_postBackElement().innerHTML = "<font color='red'>正在删除...</font>";         
+    }    
+    else if (eid.indexOf("btnSubmit")>0) 
+    {
+       document.getElementById("AjaxHolder_PostComment_ltSubmitMsg").innerHTML="正在提交...";
+       document.getElementById("AjaxHolder_PostComment_btnSubmit").disabled = true;       
+    }   
+    else if(eid.indexOf("refreshList")>0)
+    {
+        document.getElementById("AjaxHolder_PostComment_refreshList").innerHTML="<font color='red'>正在刷新...</font>";
+    }
+   
+}	
+
+function TempSave(ElementID)
+{
+	try
+	{
+	CommentsPersistDiv.setAttribute("CommentContent",document.getElementById(ElementID).value);
+	CommentsPersistDiv.save("CommentXMLStore");
+	}
+	catch(ex)
+	{
+	}
+	
+}
+function Restore(ElementID)
+{
+	CommentsPersistDiv.load("CommentXMLStore");
+	document.getElementById(ElementID).value=CommentsPersistDiv.getAttribute("CommentContent");
+}	
+			
+			
+</script>
+<!--Ene TempSave-->
+<div id="divRefreshComments" style="text-align:right;margin-right:10px;margin-bottom:5px;font-size:12px"><a href="http://www.blogjava.net/RequireRegister.aspx">新用户注册</a>&nbsp;&nbsp;<a id="AjaxHolder_PostComment_refreshList" href="javascript:__doPostBack('AjaxHolder$PostComment$refreshList','')">刷新评论列表</a>&nbsp;&nbsp;</div>
+<div class="commentform">
+<span id="AjaxHolder_PostComment_ltSubmitMsg" style="color:Red;"></span>
+<br>
+<a name="Feedback"></a>
+	<div id="AjaxHolder_PostComment_divCommnentArea">
+		</div><table cellspacing="1" cellpadding="1" border="0">	
+		<tbody><tr>
+		<td id="AjaxHolder_PostComment_tdOnCommentForm" colspan="3" style="line-height:1.5">
+		<a href="http://q.cnblogs.com/" target="_blank">程序员问答平台，解决您的技术难题</a><br>
+		<!--<a href="http://zt.cnblogs.com/training/2012/" target="_blank">国家职业资格证书-Java高级程序设计员免费培训（上海）</a>-->
+		<!--<div>
+		技术专题：<br/>
+		<a href="http://kb.cnblogs.com/zt/jquery/" title="jQuery" target="_blank">jQuery</a>&nbsp; &nbsp;<a href="http://kb.cnblogs.com/zt/android/" title="Android" target="_blank">Android</a>&nbsp; &nbsp;<a href="http://kb.cnblogs.com/zt/ipad/" title="iPad" target="_blank">iPad</a>
+		</div>-->
+		</td>
+	
+		</tr>
+		<tr>
+			<td colspan="3"></td>
+		</tr>
+		<tr>
+			<td width="75"></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2">
+			<a href="http://www.cnblogs.com/" target="_blank">博客园</a>&nbsp;  <a href="http://q.cnblogs.com/" target="_blank">博问</a>&nbsp; <a href="http://news.cnblogs.com/" target="_blank">IT新闻</a>&nbsp; <!--<a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a>&nbsp;  <a href="http://a4.yeshj.com/rd/36007/" target="_blank">学英语</a>&nbsp;  --><a href="http://job.cnblogs.com/cate-java_programmer/" target="_blank">Java程序员招聘</a>
+			</td>
+		</tr>
+		<tr>
+			<td width="55">标题</td>
+			<td><input name="AjaxHolder$PostComment$tbTitle" type="text" value="re: Linux 64bit下Oracle11g安装手册" id="AjaxHolder_PostComment_tbTitle" class="commenttb" style="width:320"></td>
+			<td><span id="AjaxHolder_PostComment_RequiredFieldValidator1" style="color:Red;visibility:hidden;">请输入标题</span></td>
+		</tr>
+		<tr>
+			<td>姓名</td>
+			<td><input name="AjaxHolder$PostComment$tbName" type="text" id="AjaxHolder_PostComment_tbName" class="commenttb" style="width:320"></td>
+			<td><span id="AjaxHolder_PostComment_RequiredFieldValidator2" style="color:Red;visibility:hidden;">请输入你的姓名</span></td>
+		</tr>
+		<tr>
+			<td>主页</td>
+			<td><input name="AjaxHolder$PostComment$tbUrl" type="text" id="AjaxHolder_PostComment_tbUrl" class="commenttb" style="width:320"></td>
+			<td><font face="宋体"></font></td>
+		</tr>
+		<tr>
+			<td align="left" colspan="3">
+				<table id="AjaxHolder_PostComment_tbCaptchaImage" class="CommentForm" cellspacing="0" cellpadding="0" border="0">
+		<tbody><tr>
+			<td colspan="3">
+							<span id="AjaxHolder_PostComment_Requiredfieldvalidator4" style="color:Red;display:none;">请输入验证码</span>
+							<span id="AjaxHolder_PostComment_lblImage" style="color:Red;font-weight:bold;"></span>
+						</td>
+		</tr>
+		<tr>
+			<td width="78">验证码</td>
+			<td><input name="AjaxHolder$PostComment$CodeNumberTextBox" type="text" id="AjaxHolder_PostComment_CodeNumberTextBox">*&nbsp;&nbsp;<img src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/JpegImage.aspx"></td>
+			<td align="left"></td>
+		</tr>
+	</tbody></table>
+	
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">内容(请不要发表任何与政治相关的内容)
+				<span id="AjaxHolder_PostComment_RequiredFieldValidator3" style="color:Red;visibility:hidden;">请输入评论内容</span><br>
+				<textarea name="AjaxHolder$PostComment$tbComment" rows="10" cols="50" id="AjaxHolder_PostComment_tbComment" class="commentTextBox" onkeydown="ctlent(event,&#39;AjaxHolder_PostComment_tbComment&#39;)" style="Width:480;Height:220"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+		<span id="AjaxHolder_PostComment_Message" style="color:Red;"></span>
+		</td>
+		</tr><tr>
+			<td colspan="3"><input id="AjaxHolder_PostComment_chkRemember" type="checkbox" name="AjaxHolder$PostComment$chkRemember" checked="checked" tabindex="-1"><label for="AjaxHolder_PostComment_chkRemember">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td height="23"><input type="submit" name="AjaxHolder$PostComment$btnSubmit" value="提交" onclick="TempSave(&#39;AjaxHolder_PostComment_tbComment&#39;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;AjaxHolder$PostComment$btnSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="AjaxHolder_PostComment_btnSubmit" class="commentButton">
+				</td>
+			<td colspan="2" height="23">&nbsp;
+				<a id="AjaxHolder_PostComment_lnkLogin" href="http://www.blogjava.net/login.aspx?ReturnURL=http://www.blogjava.net/icewee/archive/2013/01/30/394943.html&SourceURL=/icewee/archive/2013/01/30/394943.html">登录</a>&nbsp;&nbsp;<!--<a id="AjaxHolder_PostComment_linkLoginComment" OnClick="if(document.getElementById('AjaxHolder_PostComment_tbComment').value != '') return confirm('未提交的评论内容将会丢失, 你真的要进入高级评论吗?');" href="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html?login=1#Post">使用高级评论</a>&nbsp;&nbsp;<a href="http://www.blogjava.net/RequireRegister.aspx">新用户注册</a>&nbsp;&nbsp;<A href="#Top">返回页首</A>&nbsp;&nbsp;<a id="AjaxHolder_PostComment_lbRestore" OnClick="Restore('AjaxHolder_PostComment_tbComment'); return false;" href="/icewee/archive/2013/01/30/394943.html#Post">恢复上次提交</a>&nbsp;&nbsp;-->&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+		</tr>
+		<tr>
+			<td colspan="3"><label class="CtrlEnter">[使用Ctrl+Enter键可以直接提交]</label></td>
+		</tr>
+		
+		
+		<tr>
+			<td colspan="3"><!--该文被作者在 2013-02-18 16:23 编辑过--></td>
+		</tr>
+		<!--
+		<TR>
+			<TD colSpan="3" height="5"></TD>
+		</TR>	
+		-->	
+		<tr>
+		<td colspan="3">
+		
+<script type="text/javascript">
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type="text/javascript">
+googletag.cmd.push(function() {
+googletag.defineSlot('/1090369/blogjava_blogpost_bottom', [300, 250], 'div-gpt-ad-1364133350381-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<!-- blogjava_blogpost_bottom -->
+<div id="div-gpt-ad-1364133350381-0" style="width:300px; height:250px;">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1364133350381-0'); });
+</script>
+<iframe id="google_ads_iframe_/1090369/blogjava_blogpost_bottom_0" name="google_ads_iframe_/1090369/blogjava_blogpost_bottom_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe><iframe id="google_ads_iframe_/1090369/blogjava_blogpost_bottom_0__hidden__" name="google_ads_iframe_/1090369/blogjava_blogpost_bottom_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+<br>
+
+		</td>
+		</tr>
+		<tr>			
+		<td colspan="3">
+		
+		</td>
+		</tr>
+		<tr>
+		<td colspan="3"></td>
+		</tr>
+		<tr>
+			<td colspan="3" height="1">网站导航:<div id="blogsite">
+			<a href="http://www.cnblogs.com/" title="程序员的网上家园">博客园</a>&nbsp;&nbsp;
+			<a href="http://news.cnblogs.com/">IT新闻</a>&nbsp;&nbsp;
+			<a href="http://kb.cnblogs.com/">知识库</a>&nbsp;&nbsp;
+			<a href="http://www.cppblog.com/">C++博客</a>&nbsp;&nbsp;
+			<a href="http://job.cnblogs.com/">程序员招聘</a>&nbsp;&nbsp;
+			<a href="http://www.blogjava.net/icewee/archive/2013/01/30/394943.html?opt=admin">管理</a>
+			</div>
+		</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5">
+<div id="divRelativePosts">
+相关文章:
+	
+			<ul style="margin-top:0px;padding-left:0px;">
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl01_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/08/23/403218.html">Oracle查询锁表以及杀会话或系统进程来解除锁表擦做</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl02_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2013/02/21/395530.html">Oracle数据库修改字符集</a>
+			</li>
+		
+			<li style="list-style:none;display:none">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl03_Hyperlink1" href="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/Linux 64bit下Oracle11g安装手册 - ice world - BlogJava.htm">Linux 64bit下Oracle11g安装手册</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl04_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/05/18/353194.html">ORA-12516 ORA-12520</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl05_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/23/353197.html">PowerDesigner中一些有用的设置</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl06_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/18/353199.html">Windows环境下Oracle备份还原命令</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl07_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/18/353200.html">win7(windows 7)系统下安装SQL2005(SQL Server 2005)图文教程</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl08_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/18/353201.html">Oracle左(外)、右(外)、全(外)、(内)连接语法与SQL标准的比较</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl09_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/13/353244.html">Oracle分页SQL</a>
+			</li>
+		
+			<li style="list-style:none;">
+				<a id="AjaxHolder_PostComment_ctl07_RelativePostsList_ctl10_Hyperlink1" href="http://www.blogjava.net/icewee/archive/2011/04/13/353245.html">UNION和UNION ALL的区别</a>
+			</li>
+		
+			</ul>
+		
+</div>
+</td>
+		</tr>	
+		<tr>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="3" height="5"></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				</td>
+		</tr>		
+	</tbody></table>	
+</div>
+<div id="AjaxHolder_PostComment_ValidationSummary1" style="color:Red;display:none;">
+
+	</div>
+
+</div>
+
+				
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="FooterCell">
+			
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.blogjava.net/" style="font-family:Verdana;font-size:12px;">BlogJava</a>
+	<br>
+	Copyright © IceWee
+</p>
+		</td>
+	</tr>
+</tbody></table>
+
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_ValidationSummaries =  new Array(document.getElementById("AjaxHolder_PostComment_ValidationSummary1"));
+var Page_Validators =  new Array(document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator1"), document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator2"), document.getElementById("AjaxHolder_PostComment_Requiredfieldvalidator4"), document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator3"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var AjaxHolder_PostComment_RequiredFieldValidator1 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator1"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator1");
+AjaxHolder_PostComment_RequiredFieldValidator1.controltovalidate = "AjaxHolder_PostComment_tbTitle";
+AjaxHolder_PostComment_RequiredFieldValidator1.errormessage = "请输入标题";
+AjaxHolder_PostComment_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator1.initialvalue = "";
+var AjaxHolder_PostComment_RequiredFieldValidator2 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator2"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator2");
+AjaxHolder_PostComment_RequiredFieldValidator2.controltovalidate = "AjaxHolder_PostComment_tbName";
+AjaxHolder_PostComment_RequiredFieldValidator2.errormessage = "请输入你的姓名";
+AjaxHolder_PostComment_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator2.initialvalue = "";
+var AjaxHolder_PostComment_Requiredfieldvalidator4 = document.all ? document.all["AjaxHolder_PostComment_Requiredfieldvalidator4"] : document.getElementById("AjaxHolder_PostComment_Requiredfieldvalidator4");
+AjaxHolder_PostComment_Requiredfieldvalidator4.controltovalidate = "AjaxHolder_PostComment_CodeNumberTextBox";
+AjaxHolder_PostComment_Requiredfieldvalidator4.errormessage = "请输入验证码";
+AjaxHolder_PostComment_Requiredfieldvalidator4.display = "Dynamic";
+AjaxHolder_PostComment_Requiredfieldvalidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_Requiredfieldvalidator4.initialvalue = "";
+var AjaxHolder_PostComment_RequiredFieldValidator3 = document.all ? document.all["AjaxHolder_PostComment_RequiredFieldValidator3"] : document.getElementById("AjaxHolder_PostComment_RequiredFieldValidator3");
+AjaxHolder_PostComment_RequiredFieldValidator3.controltovalidate = "AjaxHolder_PostComment_tbComment";
+AjaxHolder_PostComment_RequiredFieldValidator3.errormessage = "请输入评论内容";
+AjaxHolder_PostComment_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+AjaxHolder_PostComment_RequiredFieldValidator3.initialvalue = "";
+var AjaxHolder_PostComment_ValidationSummary1 = document.all ? document.all["AjaxHolder_PostComment_ValidationSummary1"] : document.getElementById("AjaxHolder_PostComment_ValidationSummary1");
+AjaxHolder_PostComment_ValidationSummary1.showmessagebox = "True";
+AjaxHolder_PostComment_ValidationSummary1.showsummary = "False";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('AjaxHolder_PostComment_ValidationSummary1').dispose = function() {
+    Array.remove(Page_ValidationSummaries, document.getElementById('AjaxHolder_PostComment_ValidationSummary1'));
+}
+Sys.Application.initialize();
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator1'));
+}
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator2'));
+}
+
+document.getElementById('AjaxHolder_PostComment_Requiredfieldvalidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_Requiredfieldvalidator4'));
+}
+
+document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('AjaxHolder_PostComment_RequiredFieldValidator3'));
+}
+//]]>
+</script>
+</form>
+    <script type="text/javascript" src="./Linux 64bit下Oracle11g安装手册 - ice world - BlogJava_files/ShowHidden.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-476124-3']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+
+</body></html>

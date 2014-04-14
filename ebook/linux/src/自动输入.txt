@@ -1,0 +1,87 @@
+#!/usr/bin/expect
+set timeout 20
+send_user "Please enter password to run:"
+expect "gogogo\n"
+set hostA 10.27.4.21
+set hostB 10.27.4.33
+set hostC 10.27.4.201
+set name root
+set passwordA *****
+set passwordB *****
+spawn ssh $hostA -l $name
+expect {
+   "(yes/no)?" {
+       send "yes\n"
+       expect "assword:"
+       send "$passwordA\n"
+   }
+        "assword:" {
+        send "$passwordA\n"
+   }
+}
+expect "*#"
+send "cd /etc/sysconfig/network-scripts/\n"
+expect "*#"
+send "sed -i 's/$hostA/$hostC/' ifcfg-eth0\n"
+expect "*#"
+send "service network restart\n"
+expect "*#"
+send "exit\n"
+expect "*#"
+spawn ping $hostC -c 5
+expect {
+   "*ms" {
+   send_user "$hostA change to $hostC SUCCESS\n"
+   } 
+   "*reachable" { 
+   send_user "$hostA change to $hostC FAILURE\n"
+   }
+}
+expect "*#"
+send "cd /etc/sysconfig/network-scripts/\n"
+expect "*#"
+send "sed -i 's/$hostB/$hostA/' ifcfg-eth0\n"
+expect "*#"
+send "service network restart\n"
+expect "*#"
+send "exit\n"
+expect "*#"
+spawn ping $hostA -c 5
+expect {
+   "*ms" {
+   send_user "$hostB change to $hostA SUCCESS\n"
+   } 
+   "*reachable" {  
+   send_user "$hostB change to $hostA FAILURE\n"
+   }
+}
+spawn ssh $hostC -l $name
+expect {
+   "(yes/no)?" {
+       send "yes\n"
+       expect "assword:"
+       send "$passwordA\n"
+   }
+        "assword:" {
+        send "$passwordA\n"
+   }
+}
+expect "*#"
+send "cd /etc/sysconfig/network-scripts/\n"
+expect "*#"
+send "sed -i 's/$hostC/$hostB/' ifcfg-eth0\n"
+expect "*#"
+send "service network restart\n"
+expect "*#"
+send "exit\n"
+expect "*#"
+spawn ping $hostB -c 5
+expect {
+   "*ms" {
+   send_user "$hostC change to $hostB SUCCESS\n"
+   } 
+   "*reachable" {  
+   send_user "$hostC change to $hostB FAILURE\n"
+   }
+}
+expect eof

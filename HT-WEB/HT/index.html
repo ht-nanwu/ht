@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="View/css/common.css">
+<link rel="stylesheet" type="text/css" href="View/css/easyui.css">
+<link rel="stylesheet" type="text/css" href="View/css/icon.css">
+<script src="View/js/jquery.min.js"></script>
+<script type="text/javascript" src="View/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="View/js/common.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// initlize
+		findArticle("A1");
+		// node click
+		$('.easyui-tree').tree({
+			onClick : function(node) {
+				$('#articleId').val(node["id"]);
+				findArticle(node["id"]);
+			}
+		});
+		$('#reply_button').click(function() {
+			loadCommemt();
+		});
+	});
+</script>
+</head>
+<body>
+<div id="side_control">
+<ul class="easyui-tree">
+	<li><span>Java读书笔记</span>
+	<ul>
+		<li id="A1"><span>HELLO WORLD!</span></li>
+	</ul>
+	<ul>
+		<li data-options="state:'closed'"><span>初始化以及垃圾清理</span>
+		<ul>
+			<li id="A1B1"><span>用构造器初始化</span></li>
+			<li id="A1B2"><span>重载</span></li>
+			<li id="A1B3"><span>this关键字</span></li>
+			<li id="A1B4"><span>成员变量初始化</span></li>
+			<li id="A1B5"><span>构造器初始化</span></li>
+			<li id="A1B6"><span>数组初始化</span></li>
+			<!--<li id="A1B7"><span>枚举初始化</span></li>-->
+		</ul>
+		</li>
+		<li data-options="state:'closed'"><span>访问权限</span>
+		<ul>
+			<li id="A2B1">Package包访问机制</li>
+			<li id="A2B2">Private关键字</li>
+			<li id="A2B3">Protected关键字</li>
+			<li id="A2B4">Games</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+<ul class="easyui-tree">
+	<li><span>N2</span>
+	<ul>
+		<li id="B1"><span>N2单词</span></li>
+	</ul>
+	<ul>
+		<li id="B2"><span>N2活用型</span></li>
+	</ul>
+	</li>
+</ul>
+</div>
+<div id="article_control">
+	<div>
+		<h1 id="title"></h1>
+		<div id="attention_info">
+		<ul>
+			<li style="cursor: default;" id="readTimes"></li>
+			<li><a href="javascript:void(0);" id="recieveGoodTimes"
+				style="text-decoration: none;"></a></li>
+		</ul>
+		</div>
+		<div id="content" style="max-height: 70%;"></div>
+	</div>
+</div>
+<div id="reply">
+	<textarea class="textarea_reply"></textarea>
+	<span id="reply_button" class="clearfix button">提交</span>
+	<div class="reply_content scrollbar">
+		<ul class="reply_list"></ul>
+	</div>
+</div>
+<input type="hidden" id="articleId" value="A1">
+</body>
+</html>

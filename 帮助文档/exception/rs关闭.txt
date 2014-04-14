@@ -1,0 +1,17 @@
+﻿《问题》
+
+if （rs.next()）{
+......
+}
+
+监视rs.next()，明明是true。为什么程序没有进入if内 等
+《解答》
+rs.next不要用debug去监视，会出问题。
+
+原因：这和debug有关，确切告诉你debug是会执行你所监视的代码的。有点抽象，不过拿你的rs.next()的来做例子就明白了。
+
+打个比方，比如说rs里面有一个值，那么你肯定是认为rs.next为true。那么再执行一次rs.next()呢，那肯定就是false.同样的道理，debug中rs.next被你监视，当你看的他的结果时候，rs.next()被执行了一次，再到你的程序中if(rs.next())，这时它已经是被执行第2次了。所以他返回的是false.如果你真的很想监视这个变量，我的意见是：
+
+ boolean flag = rs.next();
+ if(flag)
+监视flag.

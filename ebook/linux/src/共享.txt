@@ -1,0 +1,3 @@
+1.在/etc/ssh/sshd_config　文件中，将ermitRootLogin no|yes?置?允?root用??程登?，否?通?putty(一??程登?工具)?然能?接上，但是却不能登?
+2./etc/init.d/sshd start    ??ssh服?
+3.chkconfig sshd on

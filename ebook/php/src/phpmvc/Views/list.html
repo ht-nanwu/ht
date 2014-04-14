@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+</head>
+<body>
+	你好：<?php echo $name; ?>
+	
+	<form action="">
+		dates: <input type="text" name="dates" /><br/>
+		sales: <input type="text" name="sales" />
+		<input type="submit" value="搜索" />
+	
+	</form>
+	
+	<table border="1px">
+		<tr>
+			<td>id</td>
+			<td>dates</td>
+			<td>xkf</td>
+			<td>ylx</td>
+			<td>tests</td>
+			<td>collaborate</td>
+			<td>sales</td>
+		</tr>
+		
+		<?php
+			$str = '';
+			foreach($list as $v){
+				$str .= '<tr>';
+				$str .= '<td>'.$v['id'].'</td>';
+				$str .= '<td>'.$v['dates'].'</td>';
+				$str .= '<td>'.$v['xkf'].'</td>';
+				$str .= '<td>'.$v['ylx'].'</td>';
+				$str .= '<td>'.$v['tests'].'</td>';
+				$str .= '<td>'.$v['collaborate'].'</td>';
+				$str .= '<td>'.$v['sales'].'</td>';
+				$str .= '</tr>';
+			}
+			echo $str;
+		?>
+		
+	</table>
+</body>
+</html>

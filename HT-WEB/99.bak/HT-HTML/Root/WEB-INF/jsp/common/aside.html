@@ -1,0 +1,28 @@
+<div id="aside">
+	<div id="lines">
+		<blockquote>
+			<script>
+				$(document).ready(function(){
+					var note = '处事不必求功，无过便是功。为人不必感德，无怨便是德。';
+					var regHanZi = new RegExp("[\u4E00-\u9FFF]+\\，|[\u4E00-\u9FFF]+\\。",'g');
+					var result;
+					do{
+						result = regHanZi.exec(note);
+ 						var $ul = $('<ul>');
+ 						if(result != null){
+ 							$.each(result.toString().split(""),function(key , value){
+ 								var	$li = $('<li>').append(value).css('font-family','STHeiti');
+ 								$ul.append($li);
+ 							});
+ 							$('#lines blockquote').append($ul);
+ 						}
+					}while(result != null);
+					$('#lines li').hide();
+					$('#lines li').each(function(i){
+						$(this).delay(500*i).fadeIn();
+					});
+				});
+			</script>
+		</blockquote>
+	</div>
+</div>

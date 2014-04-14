@@ -1,0 +1,74 @@
+
+ 
+<html>
+<head>
+<title>Title</title>
+<style>
+body{
+	margin:0px;
+}
+#home{
+	float:left;
+	width:48px;
+	height:100%;
+}
+
+#home_logo_1{
+	clear:both;
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 14px solid white;
+	margin-left:10px;
+	margin-top:7px;
+}
+#home_logo_2{
+	width: 10px;
+	height: 16px;
+	background:white;
+	margin-left:16px;
+	margin-left:18px\9;
+	display:inline-block;
+	
+}
+#home_logo_3{
+	display:inline-block;
+	width: 10px;
+	height: 16px;
+	background:white;
+}
+
+nav {
+  height: 45px;
+  width: 100%;
+  position: fixed;
+  background-color: #3c404b;
+  /*盒子没有获得 haslayout  造成 margin-top无效*/
+  border:1px solid #000;
+  
+  background: -webkit-linear-gradient(#56585D, #2F3034);
+  background: -moz-linear-gradient(#56585D, #2F3034);
+  background: linear-gradient(#56585D, #2F3034);
+}
+nav a:hover{
+	background-color: rgba(0, 0, 0, .5);
+}
+
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body>
+	<!-- Navigation -->
+	
+		<nav>
+			<a id="home" href="#">
+				<div id="home_logo_1"></div>
+				<div id="home_logo_2"></div>
+				<div id="home_logo_3"></div>
+			</a>
+		</nav>
+	
+</body>
+</html>
+

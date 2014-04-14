@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<title>Test</title>  
+<script type="text/javascript" src="js/jquery.js"></script>  
+<script type="text/javascript">  
+  
+var Test = {  
+times: 0,  
+timer: null,  
+logs: [],  
+  
+first: null,  
+last: null,  
+  
+do_click: function() {  
+    var self = Test;  
+  
+    self.start();  
+    clearTimeout(self.timer);  
+    self.times++;  
+    self.timer = setTimeout(function() { self.logs.push('click'); self.echo(); }, 300);  
+},  
+  
+do_dblclick: function() {  
+    var self = Test;  
+    //$("p:first").css('background', 'red');
+	$(".dbclickCheck").attr('disabled','disabled');
+			$(".dbclickCheck").css('background','grey');
+    clearTimeout(self.timer);  
+    self.logs.push('dblclick');  
+    self.echo();  
+},  
+  
+start: function() {  
+    if (this.first == null) {  
+        this.first = new Date().getTime();  
+    }  
+},  
+  
+end: function() {  
+    if (this.last == null) {  
+        this.last = new Date().getTime();  
+    }  
+},  
+  
+get_time: function() {  
+    return (this.last - this.first) || 0;  
+},  
+  
+echo: function() {  
+    var self = Test;  
+    self.end();  
+  
+    var log = 'No.' + self.times + '; Use time: ' + self.get_time() + 'ms; Event: ' + self.logs.join(', ') + ';<br />\n';  
+    $('#log').prepend(log);  
+    self.first = null;  
+    self.last = null;  
+    self.logs = [];  
+},  
+  
+init: function() {  
+        $(document).ready(function() {  
+            $('input').click(Test.do_click).dblclick(Test.do_dblclick);  
+        });  
+    }  
+};  
+  
+Test.init();  
+  
+</script>  
+</head>  
+  
+<body>  
+<div style="width:200px; height:50px; border:1px solid #999;">Click / DblClick Me!</div>  
+Log:<br />  
+<textarea id="log" rows="20" cols="50"></textarea>  
+<form>
+		<input type="submit" class="dbclickCheck" />
+		<p>First Paragraph</p>
+
+		<p>Second Paragraph</p>
+		<p>Yet one more Paragraph</p>
+	</form>
+</body>  
+</html>  

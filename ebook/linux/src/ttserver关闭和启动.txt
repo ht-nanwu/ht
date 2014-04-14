@@ -1,0 +1,2 @@
+ps -ef | grep ttserver
+kill -TERM 2159

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Editor</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="../css/common.css" />
+<script type="text/javascript" src="tinyeditor.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<style>
+form{
+	position:absolute;
+	left:30%;
+	top:10%;
+}
+.te {
+	margin-top: 50px;
+}
+#title {
+	width: 400px;
+	margin-left: 100px;
+	margin-bottom: 50px;
+}
+#articleId {
+	width: 400px;
+	margin-left: 76px;
+}
+p {
+	margin:0; 
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#reply_button').click(function() {
+			var isEmptyTitle = $.trim($('#title').val()) == "";
+			var isEmptyArticleId = $.trim($('#articleId').val()) == "";
+			var isEmptyContent = $.trim($($('iframe')[0].contentDocument).find('body').html()) == "";
+			if(isEmptyTitle || isEmptyContent || isEmptyArticleId) {
+				alert("不能为空!!!!!!!!");
+			}else{				
+				$.ajax({
+                    type:"POST",
+                    url:"../../getAction.php",
+                    dataType:"text",
+                    data:
+                    {
+                    	articleId:$('#articleId').val(),
+                    	action:"editArticle",
+                    	content:$($('iframe')[0].contentDocument).find('body').html(),
+                    	title:$('#title').val()
+                    },
+                    success:function(text){
+                        if(text == "0") {
+                        	alert("插入文字成功!!!");
+                        }else if(text == "1"){
+                        	alert("更新文字成功!!!");
+                        }else{
+                        	alert("发表失败!!!");
+                        }
+                    }
+                });
+			}
+		});
+		$('#view_button').click(function(){
+			var isEmptyTitle = $.trim($('#title').val()) == "";
+			var isEmptyArticleId = $.trim($('#articleId').val()) == "";
+			var isEmptyContent = $.trim($($('iframe')[0].contentDocument).find('body').html()) == "";
+			$(".popup_article_control").fadeIn(300);
+			$('body').append('<div id="mask"></div>');
+			$('#mask').fadeIn(300);
+			$('#popup_content').html('');
+			$('#popup_title').html('');
+			$('#popup_content').append($($('iframe')[0].contentDocument).find('body').html());
+			$('#popup_title').append($("#title").val());
+		});
+		$('#mask').live('click', function() { 
+			  $('#mask , .popup_article_control').fadeOut(300 , function() {
+				$('#mask').remove();  
+			}); 
+			return false;
+		});
+		$('#modify_button').click(function(){
+			var isEmptyArticleId = $.trim($('#articleId').val()) == "";
+			var method = "&method=updateArticle&action=editArticle"
+			if(isEmptyArticleId) {
+				alert("articleId不能为空")
+			}else{
+				$.ajax({
+					type:"POST",
+					url:"../../getAction.php",
+					dataType:"json",
+					data:
+					{
+						articleId:$('#articleId').val(),
+						method:"updateArticle",
+						action:"editArticle",
+					},
+					success:function(json){
+						$('#title').val(json[0]['title']);
+						$($('iframe')[0].contentDocument).find('body').html(unescape(json[0]['content']));
+					}
+				});
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<form action="" method="post">
+	<div style="margin: 25px; width: 584px">
+		<label>标题</label><input id="title" name="title" type="text"></input> <br />
+		<label>目录代码</label><input id="articleId" name="articleId" type="text"></input>
+	</div>
+	<textarea id="input" style="width: 400px; height: 200px"></textarea>
+	<span id="reply_button" class="button" style="margin-left: 25px;display: inline;">提交</span>
+	<span id="view_button" class="button" style="margin-left: 25px;display: inline;">预览</span>
+	<span id="modify_button" class="button" style="margin-left: 25px;display: inline;">修正</span>
+</form>
+<script type="text/javascript">
+	new TINY.editor.edit('editor', {
+		id : 'input',
+		width : 584,
+		height : 175,
+		cssclass : 'te',
+		controlclass : 'tecontrol',
+		rowclass : 'teheader',
+		dividerclass : 'tedivider',
+		controls : [ 'bold', 'italic', 'underline', 'strikethrough', '|',
+				'subscript', 'superscript', '|', 'orderedlist',
+				'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+				'centeralign', 'rightalign', 'blockjustify', '|', 'unformat',
+				'|', 'undo', 'redo', 'n', 'font', 'size', 'style', '|',
+				'image', 'hr', 'link', 'unlink', '|', 'cut', 'copy', 'paste',
+				'print' ],
+		footer : true,
+		fonts : [ 'Verdana', 'Arial', 'Georgia', 'Trebuchet MS' ],
+		xhtml : true,
+		cssfile : 'style.css',
+		bodyid : 'editor',
+		footerclass : 'tefooter',
+		toggle : {
+			text : 'source',
+			activetext : 'content',
+			cssclass : 'toggle'
+		},
+		resize : {
+			cssclass : 'resize'
+		}
+	});
+</script>
+<div id="article_control" style="display: none" class="popup_article_control scrollbar">
+	<div>
+		<h1 id="popup_title"></h1>
+		<div id="attention_info">
+			<ul>
+		        <li style="cursor: default;">浏览(0) |</li>
+		        <li><a href="javascript:void(0);">赞(0)</a></li>
+		     </ul>
+		</div>
+		<div id="popup_content" style="max-height: 70%;"></div>
+	</div>
+</div>
+</body>
+</html>

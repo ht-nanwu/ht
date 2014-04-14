@@ -1,0 +1,87 @@
+降低MyEclipse内存占用
+前言：MyEclipse5.5 大小 139M；MyEclipse6.5 大小 451M；MyEclipse7.0 大小 649M！下载服务器又是国外的。。。下载速度累人也就罢了，只要你工作性能一流。不幸的是，MyEclipse 属于狂吃内存的主，特别是 MyEclipse7.0 运行起来，基本上不用干其他工作了，它是一会Quick update，一会 updating indexes ，你耐着性子等它 update 完，它老人家又开始自动 validation 了！
+
+
+实在忍无可忍，作者收集了一些关于解决 MyEclipse 的耗内存的办法，经本人测试非常有效，共享出来，希望可以方便更多的朋友。
+
+
+1 老是弹出Quick update error 、关闭myeclipse的Quick Update自动更新功能
+
+
+这个问题的解决办法是关闭自动更新
+
+Windows > Preferences > MyEclipse Enterprise Workbench > Community Essentials, 
+把选项 "Search for new features on startup"的前勾去掉即可。
+
+
+2 关闭updating indexes
+
+
+Window > Preferences > Myeclipse Enterprise Workbench > Maven4Myeclipse > Maven>禁用Download repository index updates on startup 。
+
+
+3 关闭MyEclipse的自动validation
+
+
+validation有一堆，什么xml、jsp、jsf、js等等，我们没有必要全部都去自动校验一下，只是需要的时候才会手工校验一下，速度立马提升好几个档次
+
+windows > perferences > myeclipse > validation 
+将Build下全部勾取消
+
+如果你需要验证某个文件的时候，我们可以单独去验证它。方法是，在需要验证的文件上( 右键 -> MyEclipse -> Run Validation 。
+
+
+4 启动优化，关闭不需要使用的模块
+
+
+一个系统20%的功能往往能够满足80%的需求，MyEclipse也不例外，我们在大多数时候只需要20%的系统功能，所以可以将一些不使用的模块禁止 加载启动。
+
+Window > Preferences > General > Startup andy Shutdown 在这里列出的是MyEclipse启动时加载的模块 我这里只让它加载tomcat5 勾选 MyEclipse EASIE Tomcat 5 。
+
+怎样才能知道哪些启动项有用呢？我现在把我知道的启动项用处说一下，还有很多不懂的，希望大家懂的回复在下面啊： 
+WTP ：一个跟myeclipse差不多的东西，主要差别是 WTP 是免费的，如果使用myeclipse，这个可以取消 
+Mylyn：组队任务管理工具，类似于 CVS ，以任务为单位管理项目进度，没用到的可以取消 
+Derby：一种保存成 jar 形式的数据库，我没用到，取消 
+一大排以 MyEclipse EASIE 打头的启动项：myeclipse 支持的服务器，只选自己用的，其他取消，比如我只选了tomcat 。
+
+
+5 去掉MyEclipse的拼写检查（如果你觉的有用可以不去）
+
+
+拼写检查会给我们带来不少的麻烦，我们的方法命名都会是单词的缩写，他也会提示有错，所以最好去掉，没有多大的用处
+
+Window > perferences > General > Editors > Text Editors > Spelling > 将Enable spell checking复选框的勾选去掉。
+
+
+6 去掉MyEclipse繁杂的自带插件自动加载项
+
+
+Window > perferences > General > Startup and Shutdown > 将Plug-ins activated on startup 中的复选框有选择性的勾选去掉。
+
+
+7 修改MyEclipse编辑JSP页面时的编辑工具
+
+
+Window > perferences > General > Editors > File Associations > 
+在File types 中选择 *.jsp > 在Associated editors 中将"MyEclipse JSP Editor"设置为默认。
+
+
+8 修改MyEclipse安装目录的eclipse.ini文件，加大JVM的非堆内存
+
+
+具体内容如下：
+-clean
+-showsplash
+com.genuitec.myeclipse.product.ide
+--launcher.XXMaxPermSize
+256m
+-vmargs
+-Xms128m
+-Xmx512m
+-Duser.language=en 
+-XX:PermSize=128M 
+-XX:MaxPermSize=256M
+
+
+把下面的那个 -XX:MaxPermSize 调大，比如 -XX:MaxPermSize=512M，再把 -XX:PermSize 调成跟 -XX:MaxPermSize一样大。
+

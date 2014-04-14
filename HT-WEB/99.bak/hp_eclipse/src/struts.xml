@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="article" extends="struts-default">
+
+		<action name="articleAddAction" method="add"
+			class="com.homeProject.action.articleAddAction">
+			<result name="success">/home/home.jsp</result>
+		</action>
+
+		<action name="articleSelectAllAction" method="findArticle"
+			class="com.homeProject.action.ArticleCommentANDContentAction">
+			<result name="success">/home/home.jsp</result>
+		</action>
+	</package>
+
+	<package name="NG" namespace="/" extends="struts-default">
+		<action name="showUpload">
+			<result>/upload.jsp</result>
+		</action>
+		<action name="doUpload" class="StrutsFileUpload">
+			<result name="input">/upload.jsp</result>
+			<result>/upload.jsp</result>
+		</action>
+		<action name="getImage" class="com.homeProject.action.ShowImageAction"
+			method="getImage">
+		</action>
+	</package>
+	<!--
+	<package name="comments" extends="json-default">
+		<action name="findComments" class="com.homeProject.action.ArticleCommentANDContentAction" method="findArticle">
+			<result type="json" />
+		</action>
+	</package>
+	 -->
+</struts>

@@ -1,0 +1,380 @@
+/**
+ * 作者:吴圣平
+ * ht项目布局一览 
+ **/
+html,body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+/*公共设定开始*/
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: ".";
+	clear: both;
+	height: 0;
+}
+
+#body_hidden {
+	display: none;
+	background: #000;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	z-index: 1;
+	filter: alpha(opacity =                                          50);
+	opacity: 0.5;
+}
+
+.search {
+	width: 175px;
+	padding: 6px 10px;
+	color: #333;
+	text-shadow: 0 1px 0 white;
+	background-color: white;
+	border: 0;
+	border-radius: 5px;
+	outline: 0;
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+#topic_hidden_content {
+	display: none;
+	top: 10%;
+	left: 30%;
+	position: fixed;
+	background-color: white;
+	width: 40%;
+	height: 70%;
+	overflow: auto;
+	z-index: 2;
+	box-shadow: 5px 5px 5px #16387C;
+	width: 40%;
+}
+/*公共设定结束*/
+
+/*导航区域布局开始 */
+#nav {
+	position: absolute;
+	top: 0;
+	height: 35px;
+	width: 100%;
+	background-color: #3c404b;
+	/*盒子没有获得 layout  造成 margin-top无效*/
+	border: 1px solid #000;
+}
+
+.search {
+	margin-right: 20px;
+	float: right;
+}
+/* 鼠标悬浮效果 */
+#nav a:hover {
+	background-color: rgba(0, 0, 0, .5);
+}
+/* 导航区域布局结束 */
+
+/* 正文设定开始 */
+#content {
+	position: absolute;
+	top: 36px;
+	bottom: 20px;
+	left: 0;
+	right: 19%;
+	border-bottom: 1px solid #cecece;
+}
+
+#content_tab {
+	height: 3%;
+	padding-top: 10px;
+	margin-left: 10px;
+	list-style: none;
+	border-bottom: 1px solid #cecece;
+	font-size: 14px;
+	list-style: none;
+}
+
+#content_tab li {
+	display: inline-block;
+	padding-left: 1%;
+}
+
+#content_tab li a {
+	text-decoration: none;
+	color: #999;
+}
+
+#content_tab a:hover {
+	background: #92D4FF;
+	color: #fff;
+	padding: 8px 10px;
+}
+
+#item_list {
+	width: 100%;
+	height: 93%;
+}
+
+#single_item {
+	margin-top: 1.5%;
+	margin-bottom: 1%;
+	float: left;
+	width: 27%;
+	height: 35%;
+	background: #E8E8E8;
+	margin-left: 3%;
+	padding: 1%;
+	position: relative;
+}
+
+#title {
+	float: left;
+}
+
+#title a {
+	color: #08c;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	font-size: 13px;
+	padding-left: 10px;
+}
+
+#scan_times {
+	float: right;
+}
+
+#scan_times_ul {
+	padding: 0;
+	margin: 5px 0 0;
+	list-style: none;
+	float: right;
+}
+
+#scan_times_ul li {
+	float: left;
+	color: #999;
+	font-size: 12px;
+	margin: 0 10px;
+}
+
+#scan_times_ul img {
+	vertical-align: middle;
+}
+
+#topic {
+	width: 90%;
+	height: 80%;
+	margin: 0 auto;
+	background: #F9F9F9;
+	overflow: hidden;
+	cursor: pointer;
+	box-sizing: border-box;
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+	background: #F9F9F9;
+}
+
+#topic_more {
+	margin-top: 2px;
+	float: right;
+	border: 1px solid transparent;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	text-decoration: none;
+	color: #08c;
+	float: right;
+}
+/* 正文设定结束 */
+
+/* 侧栏设定开始 */
+#aside {
+	position: absolute;
+	top: 37px;
+	bottom: 20px;
+	right: 0;
+	left: 82%;
+}
+
+#lines {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	height: 36%;
+	background: url("../image/line.png");
+	border-radius: 5px 5px 0 0;
+	border: 1px solid #ccc;
+	box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1), 1px 1px 3px
+		rgba(0, 0, 0, 0.2);
+}
+
+#lines blockquote {
+	line-height: 30px;
+}
+
+#lines ul {
+	float:left;
+	margin:0;
+	list-style: none;
+	padding-left: 9%;
+}
+/* 侧栏设定结束 */
+
+/* 脚本设定开始 */
+#footer {
+	position: absolute;
+	bottom: 0;
+	height: 20px;
+	width: 100%;
+	background: #3c404b;
+}
+
+#footer a {
+	color: #d5e142;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+#writer {
+	margin: 1px 0 0;
+	list-style: none;
+	float: left;
+}
+
+#writer p {
+	color: #aaa;
+	margin: 5px 0 0;
+	font-size: 11px;
+}
+
+#out_link {
+	padding: 0;
+	margin: 1px 0 0;
+	list-style: none;
+	float: right;
+}
+
+#footer li {
+	float: left;
+	margin: 0 10px;
+}
+/* 脚本设定结束 */
+/* 回复设定开始 */
+#article {
+	position: absolute;
+	top: 3%;
+	left: 3%;
+	right: 42%;
+	bottom: 3%;
+}
+
+#article label {
+	transition: background 0.4s ease-in-out, height 0.2s linear;
+	display: inline-block;
+	cursor: pointer;
+	color: #dbdbd3;
+	width: 100px;;
+	height: 45px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background: #525252;
+	text-align: center;
+	line-height: 3em;
+}
+
+#article label:hover {
+	background: #667876;
+}
+
+#article_content {
+	margin-top: 0;
+	border-top: #b8b63e 5px solid;
+}
+
+#head {
+	height: 30%;
+	margin-top: 64px;
+	margin-top: 0;
+	background: #f7f7f7;
+	padding: 20px;
+}
+
+#reply {
+	position: absolute;
+	border-left: 2px solid #A0A0A0;
+	top: 3%;
+	left: 59%;
+	right: 0;
+}
+
+#reply_button {
+	display: block;
+	color: #666;
+	background-color: #eee;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-bottom-width: 3px;
+	cursor: pointer;
+	width: 30px;
+	margin-left: 5%;
+}
+
+.textarea_reply {
+	width: 95%;
+	margin: 10% 0 10% 4%;
+	resize: none;
+	border: 1px solid #AAA;
+	font-family: calibri;
+	font-size: 16px;
+}
+
+.reply_content {
+	margin-top: 12px;
+	overflow-y: auto;
+	border-top: 1px dotted #000;
+	margin-left: 50px;
+	height: 350px;
+}
+
+.each_reply {
+	list-style: none;
+	margin-left: 8px;
+	margin-bottom: 10px;
+	border-bottom: 1px dotted #555;
+}
+
+.post_content {
+	margin-bottom: 5px;
+	min-height: 20px;
+	word-wrap: break-word;
+}
+
+.post_info {
+	text-align: right;
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+.hover {
+	position: absolute;
+	z-index: 100;
+	border: 1px solid #AAA;
+	background-color: white;
+	padding: 2px;
+	box-shadow: 1px 1px 5px 1px #DDD;
+}
+/* 回复设定结束 */

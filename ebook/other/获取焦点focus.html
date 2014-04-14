@@ -1,0 +1,56 @@
+<html>    
+<iframe id="x" name="x"></iframe>     
+<input type="button" onclick="t()" value="test">     
+<input type="button" onclick="frames['x'].location.href='about:blank';" value="clear">  
+<script>     
+//setTimeout('window.frames["x"].document.designMode="On"',200);    
+function t(){    
+   window.frames["x"].document.designMode="On";  
+   var html = '<b style="color:red">'+$('xx').value+'</b>';      //插入的内容(html)，可以是图片。    
+   if(getBrowser()=='ie'){    
+        var Editor = window.frames["x"];   //IE获取iframe方法，否则图片位置跑到页面顶上去了。    
+        Editor.focus();    
+        o=Editor.document.selection.createRange();    
+        o.pasteHTML(html);    
+   }else if(getBrowser()=='chrome'){    
+        var Editor = $('x');   //firefox要通过这种方式获取节点才行    
+        Editor.focus();    
+        //alert(Editor.contentWindow.getSelection().getRangeAt(0));  
+        var rng = Editor.contentWindow.getSelection().getRangeAt(0);  
+        var frg = rng.createContextualFragment(html);    
+        rng.insertNode(frg);  
+    }    
+}    
+//获取浏览器版本    
+function getBrowser(){    
+    var agentValue = window.navigator.userAgent.toLowerCase();    
+    if(agentValue.indexOf('msie')>0){    
+        return "ie";    
+    }else if(agentValue.indexOf('firefox')>0){    
+        return "ff";    
+    }else if(agentValue.indexOf('chrome')>0){    
+        return "chrome";    
+    }    
+}    
+function $(id){    
+   return document.getElementById(id);    
+}    
+//根据元素className属性获取元素，如果有多个元素样式类名相同，可以用index指定返回第几个元素，第一个为1    
+function getNodeByClassName(vclassname,index){    
+    //var allnodes = document.all;    
+    var allnodes = document.getElementsByTagName("*");    
+    var x = 0;    
+    for(var i=0;i<allnodes.length;i++){    
+        if(allnodes[i].className==vclassname){    
+         if(index!="undefined"){    
+                 x++;    
+         if(x<index){    
+                    continue;    
+         }    
+         }    
+             return allnodes[i];    
+    }    
+    }    
+}    
+</script>     
+输入： <input id="xx">  

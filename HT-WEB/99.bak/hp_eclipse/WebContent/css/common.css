@@ -1,0 +1,286 @@
+body {
+	margin:0;
+	padding:0;
+	font: 76% "Lucida Sans Unicode", verdana, helvetica, sans-serif;
+	line-height: 130%;
+	background:whiteSmoke;
+}
+/*-- common --begin*/
+a{
+	color: #858585;
+}
+/*-- common --end*/
+/*--nav-1布局-- begin*/
+#home-top{
+	min-height: 0px;
+	font-weight: 600;
+	color: #CFCFCF;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 10;
+	-webkit-transform: translateZ(0);
+}
+#nav{
+	opacity: .9;
+	filter: alpha(opacity=90);
+	background-color: #2A2A2A;
+	height: 40px;
+	min-width: 225%;
+	position: relative;
+	z-index: 9;	
+}
+#menu{
+	margin-top:45px	
+}
+/*--nav-1布局-- end*/
+
+/*--留言板-- begin*/
+#GuestLeaveMsgBoard{
+	margin-top:20px;
+	border-bottom:1px dotted #CEE1EE;
+}
+#Comments-Img{
+	background:#EBEDED;
+	height:25px;
+	clear: right;
+}
+#Comments textarea{
+	width:100%;
+	height:30px;
+	margin:2px;
+}
+
+#Comments textarea:focus{
+	height:70px;
+	width:492px;
+	max-width:494px;
+}
+#Comments-Img-upload{
+	background:url("../pic/uploadImg.png") 0 0 no-repeat;
+	width:15px;
+	height:15px;
+	margin-left:10px;
+	margin-top:5px;
+	background-position:left bottom;
+	float:left;
+	cursor: pointer;
+}
+#Comments-Img-upload:hover{
+	background-position:left top;
+	cursor: pointer;	
+}
+#commit{
+	height:26px;
+	width:65px;
+	float:right;
+	color: white;
+	text-align: center;
+	line-height:24px;
+	cursor: pointer;
+	text-decoration: none;
+	background: url(../pic/commit-btn.png) 0 0 no-repeat;	
+}
+#commit div{
+	margin-top:5px;
+	text-align: center;
+}
+#commit:hover{
+	background-position:-65px 0;
+}
+/*--留言板-- end*/
+/* hp编辑器布局 */
+#homeproject-editor {
+	border: 1px solid #BBB;
+	padding: 0 1px 1px;
+	font: 12px Verdana, Arial;
+	margin: 25px;
+	width: 584px;
+}
+#imageView {
+	border-top: 1px dotted #CEE1EE;
+}
+
+/* 编辑器上每个控件的布局*/
+#each-control {
+	float: left;
+	width: 34px;
+	height: 30px;
+	cursor: pointer;
+	background-image: url(../pic/mine-editor/icons.png);
+}
+
+/* 划分一组控件的竖线"|"的布局*/
+#each-control-divider {
+	float: left;
+	width: 1px;
+	height: 30px;
+	background: #CCC;
+}
+
+/* 编辑器上每行head的布局*/
+#row-header {
+	height: 31px;
+	border-bottom: 1px solid #BBB;
+	padding-top: 1px;
+	background-image: url(../pic/mine-editor/header-bg.gif);
+}
+
+/* 编辑器上每行head的select布局*/
+#row-header select {
+	float: left;
+	margin-top: 5px;
+}
+
+/*编辑器font的布局*/
+#select-font {
+	margin-left: 12px;
+}
+
+/*编辑器size的布局*/
+#select-size {
+	margin: 0 3px;
+}
+
+/*编辑器style的布局*/
+#select-style {
+	margin-right: 12px;
+}
+
+/*编辑器button的布局*/
+#editor-button {
+	height: 32px;
+}
+/*编辑器 -回复- 的布局*/
+#editor-button div{
+    color: green;
+    text-decoration: none;
+    background-color: rgba(245,245,245,1);
+    font-family: 'Yanone Kaffeesatz';
+    font-size: 1.5em;
+    font-weight:bold;
+    display:block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 8px 0px grey, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 8px 0px grey, 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 8px 0px grey, 0px 9px 25px rgba(0,0,0,.7);
+	width: 80px;
+	height:30px;
+	text-align:center;
+	float:right;
+	margin-right:10px;
+	cursor: pointer;
+	line-height:1.7;
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+/*编辑器 -回复- 的布局*/
+#editor-button div:active {
+    -webkit-box-shadow: grey;, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px grey, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px grey, 0px 3px 6px rgba(0,0,0,.9);
+    top: 6px;
+    cursor: pointer;
+}
+
+/* aritcleAdd布局 */
+#main-content{
+	padding:1px;
+	width:700px;
+	margin:0px auto;
+	color:#222;
+	border-radius:5px;
+	background:write;
+}	
+#aritcleAdd-head{
+	padding:5px;
+	margin-top:35px;
+	margin-left:0px;
+	box-shadow:1px 1px 3px rgba(0, 0, 0, 0.25);	
+}
+
+#hidden-editor strong{
+	color: #999;
+	font-size: 15px;
+}
+#aritcleAdd-title {
+	margin: 10px 10px 10px 30px;
+}
+#aritcleAdd-note {
+	margin: 10px 10px 10px 30px;
+}
+#articleAdd-category{
+	margin: 10px 10px 10px 30px;
+}
+#aritcleAdd-inputText {
+	width: 400px;
+	color: white;
+	background: #666;
+	border-bottom: 1px solid #333;
+	border-left: 1px solid black;
+	border-right: 1px solid #333;
+	border-top: 1px solid black;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	font: 13px Arial, Helvetica, sans-serif;
+	padding: 6px 6px 4px;
+}
+/*load*/
+#editorArea{
+	margin-top:60px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+/*popup隐藏编辑器*/
+#hidden-editor{
+	display:none;
+	background: #333;
+	border: 2px solid green;
+	position:fixed;
+	top:50%; left:50%;
+	margin:-305px 0 0 -353px;
+	z-index: 99;
+	box-shadow: 0px 0px 20px #999;
+	-moz-box-shadow: 0px 0px 20px #999;
+    -webkit-box-shadow: 0px 0px 20px #999;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+/*popup隐藏背景*/
+#hidden-all{
+	display: none;
+	background: #000; 
+	position: fixed; left: 0; top: 0; 
+	z-index: 10;
+	width: 100%; height: 100%;
+	opacity: 0.8;
+	z-index: 9;
+}
+/*编辑器关闭按钮*/
+#btn-close{
+	float: right;
+	margin: -15px -15px 0 0;
+}
+/*-begin popup用-*/
+#maincontent{
+	margin:40px auto 0 auto;
+	background:white;
+	padding:1px;
+	width:960px;
+	border-radius:10px;
+	min-height:750px;
+}
+/*-end popup用-*/
+
+#articleAdd-category select {
+	width:124px;
+	background: #666;
+}

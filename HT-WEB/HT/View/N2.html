@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/icon.css">
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<title>单词记忆</title>
+<style>
+/*head css,hide the last td cell */
+#record_head_table{border-collapse:collapse;table-layout:fixed;font-size: 12px;margin-top:50px;width:857px;}
+#record_head_table td{border:1px solid #95B8E7;}
+
+#result_body_table{border-collapse:collapse;table-layout:fixed;font-size: 13px;width:857px;}
+#result_body_table td{border:1px dotted #95B8E7;overflow-x:hidden;white-space:nowrap;}
+#result_body_table tr td:first-child{border-left:1px solid #95B8E7;}
+#result_body_table tr td:last-child{border-right:1px solid #95B8E7;}
+#result_body_table tr:first-child td{border-top:0px}
+#result_body_table tr:last-child td{border-bottom:1px solid #95B8E7;}
+
+textarea{border:1px dotted #95B8E7;}
+#result_body_table_scroll{height:300px;overflow-y:scroll;width:873px;overflow-x:hidden}
+
+img{cursor:pointer}
+td{word-break:break-all;}
+</style>
+<script>
+$(function() {
+	countDownToExm();
+	$('#add').click(function(){writeToTable("","","","")});
+	
+	// 鼠标移出移入事件
+	// TODO1.合并为一====================================================
+	$(document).on('mouseleave','#result_body_table tr',function () {
+    	$(this).css('background-color','white');
+    });
+    $(document).on('mouseenter','#result_body_table tr',function () {
+    	$(this).css('background-color','#E5E5A1');
+    });
+    
+    $(document).on('click','#td_dictionary',function () {
+    	var parent = $(this).parents('tr');
+    	var word = $('#td_word',parent).html();
+    	if(word == ""){
+    		word = $('#td_spell',parent).html();
+    	}
+		window.open('http://dict.hjenglish.com/jp/jc/' + word);
+    });
+    $(document).on('click','#td_edit_button',updateWords);
+    $(document).on('click','#td_spell,#td_word,#td_meaning',editTd);
+    $(document).on('change','#td_ckbox_del',function(){
+		if($(this).is(':checked')){
+			$(this).closest('tr').find('#td_edit_button').show();
+		} else {
+			$(this).closest('tr').find('#td_edit_button').hide();
+			$.each($(this).closest('tr').find('td'),function(){
+				if($(this).css('color') == 'rgb(255, 0, 0)') {
+					$(this).closest('tr').find('#td_edit_button').show();
+					return false;
+				} 
+			});
+		}
+    });
+    $(document).on('click','#td_lnk_detail',function(){
+    	var parent = $(this).parents('tr');
+		var meaning = $('#td_meaning',parent).text();
+		var word = $('#td_word',parent).html();
+		var spell = $('#td_spell',parent).html();
+		$(".popup_article_control").fadeIn(300);
+		$('body').append('<div id="mask"></div>');
+		$('#mask').fadeIn(300);
+		$('#popup_word').html('');
+		$('#popup_spell').html('');
+		$('#popup_meaning').html('');
+		$('#popup_meaning').val(meaning);
+		$('#popup_spell').append(spell);
+		$('#popup_word').append(word);
+		$('#td_index').val(new Number($(parent).index()) + 1);
+    });
+
+    $('#search_word').click(function(){
+		$('#result_body_table').empty();
+		var id = $('#input_id').val();
+		var spell = $('#input_spell').val();
+		var dateTime = $('.combo-value').val();
+		$.ajax({
+	        type:"POST",
+	        url:"../getAction.php",
+	        dataType:"json",
+	        beforeSend:function(){
+				$('#search_word').css(
+					{"background-image": "url(images/loading.gif)",
+					 "background-repeat": "no-repeat",
+					 "backgroundPosition": "center"
+					});
+			},
+	        data:
+	        {
+	            action:"searchWord",
+	            id:id,
+	            dateTime:dateTime,
+	            spell:spell
+	        },
+	        success:function(json){
+	            $.each(json,function(i){
+	            	writeToTable(json[i]['id'],json[i]['spell'],json[i]['word'],json[i]['meaning']);
+	            });
+	            if(json.length == 0){
+	            	$('#add').click();
+	            	$('#result_body_table tr:first').find('#td_spell').html($('#input_spell').val());
+	            	$('#result_body_table tr:first').find('#td_word').html($('#input_spell').val());
+	            }
+            	if($('#test').is(':checked')){
+            		$('td[id="td_spell"]').css('background-color','black');
+            		$(document).on('click','#td_input',editTd);
+            	}
+            	$('#search_word').removeAttr('style');
+	        }
+	    });
+    });
+	$(document).on( "click",'#mask', function() { 
+		  $('#mask , .popup_article_control').fadeOut(300 , function() {
+			$('#mask').remove();
+			var editValue = $('textarea').val();
+			var index = new Number($('#td_index').val());
+			$('#result_body_table tr:nth-child('+index+')').find('#td_meaning').html(editValue);
+		}); 
+		return false;
+	});	
+		
+    $('#popup_meaning').change(function(){
+		var selector = $('#result_body_table tr:nth-child('+$('#td_index').val()+')');
+		$(selector).find('#td_meaning').css('color','red');
+    	$(selector).find('img[id="td_edit_button"]').show().css("cursor","pointer");
+	});
+    
+    $(document).on('keypress','#td_edit_input,#input_spell',function(e){
+    	if(e.which == 13){
+    		var parent = $(this).parents('tr').next('tr');
+        	var inputV = $('#td_edit_input',$(this).parents('tr')).val();
+        	var spell = $('#td_spell',$(this).parents('tr')).text();
+        	
+    		if($(parent).length == 1 && $('#test').is(':checked')){
+        		if(inputV != ""){
+        			if(inputV == spell){
+        				$('#td_status',$(this).parents('tr')).html('OK');
+        			}else{
+        				$('#td_status',$(this).parents('tr')).html('NG').css('color',"red");
+        			}
+        			$('#td_spell',$(this).parents('tr')).css('background-color',"");
+        		}
+    			$('#td_input',parent).click();
+        	}
+        	if($(this).attr('id')=='input_spell') {
+        		$('#search_word').click();
+        	}	
+    	}
+    });
+    
+    $('#edit_all').click(function(){
+    	$('#result_body_table tr').each(function(i){
+    		$('#td_edit_button:visible',this).click();
+    	});
+    });
+});
+</script>
+</head>
+<body>
+<a href="../index.html" >HOME</a>
+<div id="countDown" style="position:absolute; left:30%;right:30%;text-align:center;"></div>
+<div style="padding:50px;width:873px;clear:both">
+    <div style="float:left;">
+	    <label>序号:</label>
+	    <input type="text" id="input_id">
+	    <br><br><br><br>
+	    <label>日期:</label>	
+	    <input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></input>
+	    <label>SPELL:</label>
+	    <input type="text" id="input_spell">
+	    <script type="text/javascript">
+
+    </script>
+	    <br><br><br><br>
+	    <input type="button" value="检索" id="search_word">
+	    <input type="checkbox" id="test">TEST
+    </div>
+    <div style="clear:both;"></div>
+	<table id="record_head_table" title="记录">
+	    <tr>
+	    	<td align="center" width="80px" height="22px" colspan="2">序列号</td>
+	        <td align="center" width="100px" height="22px">输入</td>
+	        <td align="center" width="80px" height="22px">假名</td>
+	        <td align="center" width="80px" height="22px">单词</td>
+	        <td align="center" width="250px" height="22px" colspan="2">中文解释</td>
+	        <td align="center" width="80px" height="22px">沪江</td>
+	        <td align="center" width="80px" height="22px">对错</td>
+	        <td align="center" width="40px" height="22px">删除</td>
+	        <td align="left" width="40px" height="22px">
+	        	<img src="images/edit.png" id="edit_all">
+	        	<img src="images/add.png" id="add">
+	        </td>
+	    </tr>
+	</table>
+	<div id="result_body_table_scroll">
+		<table id="result_body_table">
+		</table>
+	</div>
+    <div id="article_control" style="display: none;left:24%" class="popup_article_control scrollbar">
+		<div>
+			<h1 id="popup_title">详细</h1>
+			<div id="attention_info">
+				<span id="popup_spell"></span>|
+				<span id="popup_word"></span>
+			</div>
+			<textarea id="popup_meaning" style="height:400px;width:100%"></textarea>
+			<input type="hidden" id="td_index">
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		var a =  [['a1','a2'],['b1','b2']];
+		$('body').append('<table></table>');
+	$.each(a,function(i){
+		$('table').append('<tr></tr>');
+		$.each(a[i],function(j){
+			$('tr:last').append('<td>' + a[i][j] + '</td>');
+		})
+	})
+	})
+</script>
+
+</head>
+<body>
+</body>
+</html>
